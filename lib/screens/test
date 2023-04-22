@@ -1,0 +1,23 @@
+//  flutter build apk --release 
+//  flutter pub outdated
+//  flutter pub upgrade
+//  ./ gradlew clean 
+//  ./ gradlew upgrade 
+//  ./ gradlew build 
+//  ./ gradlew rebuild
+//  IOSInitializationSettings 
+// IOSNotificationDetails
+// DarwinInitializationSettings
+//  DarwinNotificationDetails
+
+
+//  IconButton(
+//             onPressed: () {
+//               setState(() {
+//                 AppTheme.isDark = !AppTheme.isDark;
+//               });
+//             },
+//             icon: Icon(Icons.circle,
+//                 color: (AppTheme.isDark) ? Colors.white : Colors.black),
+//           ),
+// Molecular Genetics
