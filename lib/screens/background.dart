@@ -242,3 +242,64 @@ class _AnimatingBg4State extends State<AnimatingBg4>
     );
   }
 }
+class AnimatingBg5 extends StatefulWidget {
+  @override
+  _AnimatingBg5State createState() => _AnimatingBg5State();
+}
+
+class _AnimatingBg5State extends State<AnimatingBg5>
+    with TickerProviderStateMixin {
+  List<Color> colorList = [
+    Color.fromARGB(255, 0, 7, 29),
+             Color.fromARGB(255, 175, 190, 236),
+          Color.fromARGB(251, 4, 37, 129),
+   
+    Color.fromARGB(255, 74, 59, 151),
+    Color.fromARGB(255, 255, 255, 255),
+  ];
+  List<Alignment> alignmentList = [Alignment.topCenter, Alignment.bottomCenter];
+  int index = 0;
+  Color bottomColor = Color.fromARGB(255, 191, 193, 196);
+  Color topColor = Color.fromARGB(255, 2, 2, 44);
+  Alignment begin = Alignment.bottomCenter;
+  Alignment end = Alignment.topCenter;
+
+  @override
+  void initState() {
+    super.initState();
+    Timer(
+      Duration(microseconds: 0),
+      () {
+        setState(
+          () {
+            bottomColor = Color.fromARGB(255, 8, 1, 43);
+          },
+        );
+      },
+    );
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return AnimatedContainer(
+      duration: Duration(seconds: 2),
+      onEnd: () {
+        setState(
+          () {
+            index = index + 1;
+            bottomColor = colorList[index % colorList.length];
+            topColor = colorList[(index + 1) % colorList.length];
+          },
+        );
+      },
+      decoration: BoxDecoration(
+        gradient: LinearGradient(
+          begin: begin,
+          end: end,
+          colors: [bottomColor, topColor],
+        ),
+      ),
+    );
+  }
+}
+

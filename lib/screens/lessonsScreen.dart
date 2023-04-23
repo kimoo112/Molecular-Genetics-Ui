@@ -913,7 +913,7 @@ class _LessonScreenState extends State<LessonScreen> {
 //   @override
 //   Widget build(BuildContext context) {
 //     return Scaffold(
-//         backgroundColor: Color.fromARGB(255, 5, 50, 80),
+//         backgroundcolor: Color.fromARGB(255, 5, 50, 80),
 //         // appBar:
 //         //  NewGradientAppBar(
 //         //     title: Text(

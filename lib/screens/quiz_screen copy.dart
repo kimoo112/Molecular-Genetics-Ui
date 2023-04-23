@@ -2,6 +2,7 @@ import 'package:education_app/screens/question_model.dart';
 import 'package:flutter/material.dart';
 import 'dart:ui';
 
+import 'alarmqubf.dart';
 import 'background.dart';
 
 class QuizScreen2 extends StatefulWidget {
@@ -31,6 +32,8 @@ class _QuizScreen2State extends State<QuizScreen2> {
                 child:
                     Column(mainAxisAlignment: MainAxisAlignment.spaceAround, children: [
                   Row(
+                      mainAxisAlignment:MainAxisAlignment.spaceBetween,
+
                     children: [
                       SizedBox(
                         width: 40,
@@ -49,6 +52,20 @@ class _QuizScreen2State extends State<QuizScreen2> {
                           },
                         ),
                       ),
+                      MaterialButton(
+                          padding: const EdgeInsets.all(0),
+                          color: Colors.white,
+                          shape: const CircleBorder(),
+                          child: Icon(
+                            Icons.alarm_add_rounded,
+                color:   Color.fromARGB(255, 1, 9, 54),
+                        
+                          ),
+                          onPressed: () {
+                            Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => Alarmscreenqubf()));
+                          },
+                        ),
                     ],
                   ),
                   const Text(

@@ -41,9 +41,14 @@ class _AlarmScreenState extends State<AlarmScreen> {
         backgroundColor: Color.fromARGB(255, 24, 0, 68),
         appBar: AppBar(
           title: const Text(
-            'NOTIFY',
-            style: TextStyle(color: Color.fromARGB(255, 24, 0, 68)),
+            'الـتـكـرار',
+            style: TextStyle(color: Color.fromARGB(255, 24, 0, 68),
+            fontFamily: "Cairo",
+            fontWeight: FontWeight.w600,
+            fontSize: 25,
+            ),
           ),
+          centerTitle: true,
           backgroundColor: Colors.amber,
           // leading: IconButton(onPressed: Navigator.push, icon: Icon(Icons.arrow_back)),
         ),
@@ -56,24 +61,7 @@ class _AlarmScreenState extends State<AlarmScreen> {
                 child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-              //  SizedBox(height: 20,),
-
-              //   Text("Lesson 1",style: TextStyle(color: Colors.white),),
-              //   DatePickerTxt(),
-              //   ScheduleBtn(),
-              //  SizedBox(height: 50,),
-              //    Text("Lesson 2",style: TextStyle(color: Colors.white),),
-              //   DatePickerTxt(),
-              //   ScheduleBtn(),
-              //  SizedBox(height: 50,),
-
-              //    Text("Lesson 3",style: TextStyle(color: Colors.white),),
-              //   DatePickerTxt(),
-              //   ScheduleBtn(),
-              //  SizedBox(height: 50,),
-
-              //    Text("Lesson 4",style: TextStyle(color: Colors.white),),
-                DatePickerTxt(),
+                             DatePickerTxt(),
                 ScheduleBtn(),
               ],
             )

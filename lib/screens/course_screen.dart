@@ -4,6 +4,8 @@ import 'package:education_app/screens/details_screen.dart';
 import 'package:education_app/screens/details_screen2.dart';
 import 'package:education_app/screens/details_screen3.dart';
 import 'package:education_app/screens/details_screen4.dart';
+import 'package:education_app/screens/goals.dart';
+import 'package:education_app/screens/prepared.dart';
 import 'package:education_app/screens/quiz_screen%20copy.dart';
 import 'package:education_app/screens/quiz_screen.dart';
 import 'package:flutter/material.dart';
@@ -121,6 +123,20 @@ class CourseContainer extends StatelessWidget {
                   builder: (_) => DetailsScreen2(
                         // title: 'course.name',
                       )));
+        } else if (course.name == " الـأهــداف") {
+          Navigator.push(
+              context,
+              MaterialPageRoute(
+                  builder: (_) => GoalsScreen(
+                        // title: 'course.name',
+                      )));
+        }else if (course.name == " أعــداد / إشــراف") {
+          Navigator.push(
+              context,
+              MaterialPageRoute(
+                  builder: (_) => PreparedScreen(
+                        // title: 'course.name',
+                      )));
         } else if (course.name == "الدرس الثالث ") {
           Navigator.push(
               context,
@@ -150,6 +166,7 @@ class CourseContainer extends StatelessWidget {
                   builder: (_) => QuizScreen2(
                         
                       )));
+                      
         }
       },
       child: Container(

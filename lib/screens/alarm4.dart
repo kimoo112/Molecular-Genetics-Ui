@@ -2,8 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:flutter_datetime_picker/flutter_datetime_picker.dart';
+import 'package:new_gradient_app_bar/new_gradient_app_bar.dart';
 
 import 'alarmScreen.dart';
+import 'background.dart';
 import 'noti.dart';
 
 DateTime scheduleTime = DateTime.now();
@@ -19,16 +21,30 @@ class _Alarmscreen4State extends State<Alarmscreen4> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: (AppBar()),
+      appBar: NewGradientAppBar(elevation: 20,
+        gradient: LinearGradient(colors: [
+             Color.fromARGB(255, 2, 2, 44),
+             Color.fromARGB(255, 0, 0, 134),
 
-      body: Center(
-        child: Column(
-      mainAxisAlignment: MainAxisAlignment.center,
-          children:[
-          DatePickerTxt(),
-              ScheduleBtn(),
-        ]
+        ]),
+        title:Text("Lesson 4 ",style:TextStyle(fontSize:25,fontWeight:FontWeight.bold))
+        
         ),
+
+      body: Stack(
+        children: [
+                           AnimatingBg4(),
+
+          Center(
+            child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+              children:[
+              DatePickerTxt(),
+                  ScheduleBtn(),
+            ]
+            ),
+          ),
+        ],
       ),
 
 

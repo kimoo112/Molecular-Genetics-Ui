@@ -14,6 +14,18 @@ class Course {
 
 List<Course> courses = [
   Course(
+    author: "Prepared",
+    completedPercentage: 1,
+    name: " أعــداد / إشــراف",
+    thumbnail: "assets/icons/prepared.jpg",
+  ),
+  Course(
+    author: "Goals",
+    completedPercentage: .80,
+    name: " الـأهــداف",
+    thumbnail: "assets/icons/goals.jpg",
+  ),
+  Course(
     author: "quiz",
     completedPercentage: .50,
     name: " التقويم القبلي",

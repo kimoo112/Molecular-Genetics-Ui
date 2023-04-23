@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:salomon_bottom_bar/salomon_bottom_bar.dart';
 import 'dart:ui';
 
-import 'alarm.dart';
 import 'alarmScreen.dart';
 
 
@@ -21,7 +20,7 @@ class _BaseScreenState extends State<BaseScreen> {
 
   static const List<Widget> _widgetOptions = <Widget>[
     FeaturedScreen(),
-    FeaturedScreen(),
+    AlarmScreen(),
     FeaturedScreen(),
     FeaturedScreen(),
   ];
