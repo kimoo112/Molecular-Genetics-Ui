@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-import '../screens/alarmScreen.dart';
-import '../screens/noti.dart';
+import '../screens/Alarms/alarmScreen.dart';
+import '../screens/Notify/noti.dart';
 
 class ScheduleBtn extends StatelessWidget {
   const ScheduleBtn({

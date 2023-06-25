@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_datetime_picker/flutter_datetime_picker.dart';
 
-import '../screens/alarmScreen.dart';
+import '../screens/Alarms/alarmScreen.dart';
 
 
 class DatePickerTxt extends StatefulWidget {

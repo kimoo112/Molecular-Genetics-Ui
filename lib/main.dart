@@ -1,12 +1,13 @@
-import 'package:education_app/screens/SplashKimo.dart';
-import 'package:education_app/screens/base_screen.dart';
-import 'package:education_app/screens/noti.dart';
+// ignore_for_file: unused_import
+
+
+import 'package:education_app/screens/Notify/noti.dart';
+import 'package:education_app/screens/Splash/SplashKimo.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_datetime_picker/flutter_datetime_picker.dart';
+import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:timezone/data/latest.dart' as tz;
 
-import 'dart:ui';
-import 'package:flutter_local_notifications/flutter_local_notifications.dart';
-import 'package:flutter_datetime_picker/flutter_datetime_picker.dart';
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
   NotificationService().initNotification();

@@ -1,16 +1,15 @@
-import 'package:education_app/constants/color.dart';
-import 'package:education_app/constants/size.dart';
-import 'package:education_app/models/category.dart';
-import 'package:education_app/screens/course_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'dart:ui';
-import 'details_screen.dart';
-import 'details_screen2.dart';
-import 'details_screen3.dart';
-import 'details_screen4.dart';
 
+import '../constants/color.dart';
+import '../constants/size.dart';
+import '../models/category.dart';
 import '../widgets/search_testfield.dart';
+import 'Details/course_screen.dart';
+import 'Details/details_screen.dart';
+import 'Details/details_screen2.dart';
+import 'Details/details_screen3.dart';
+import 'Details/details_screen4.dart';
 
 class FeaturedScreen extends StatefulWidget {
   const FeaturedScreen({Key? key}) : super(key: key);
