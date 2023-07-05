@@ -22,82 +22,87 @@ class _QuizScreenState extends State<QuizScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       // backgroundColor: const Color.fromARGB(255, 5, 50, 80),
-      body: 
-  //     Container(
-  // decoration: BoxDecoration(
-  //   gradient: LinearGradient(
-  //     begin: Alignment.topLeft,
-  //     end: Alignment.bottomRight,
-  //     colors: [
-  //       Color.fromARGB(255, 5, 50, 80),
-  //           Color.fromARGB(255, 0, 19, 32)
-  //     ],
-  //   ),
-  // ),
-  //         width: double.infinity,
-         
-         Stack(
-           children: [
-                      AnimatingBg1(),
+      body:
+          //     Container(
+          // decoration: BoxDecoration(
+          //   gradient: LinearGradient(
+          //     begin: Alignment.topLeft,
+          //     end: Alignment.bottomRight,
+          //     colors: [
+          //       Color.fromARGB(255, 5, 50, 80),
+          //           Color.fromARGB(255, 0, 19, 32)
+          //     ],
+          //   ),
+          // ),
+          //         width: double.infinity,
 
-             SingleChildScrollView(
-               child: Container(
-                
-                     margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 32),
-                     child:
-                  Column(mainAxisAlignment: MainAxisAlignment.spaceAround, children: [ 
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    SizedBox(
-                      width: 40,
-                      height: 40,
-                      child: MaterialButton(
-                        padding: const EdgeInsets.all(0),
-                        color: Colors.white,
-                        shape: const CircleBorder(),
-                        child: Icon(
-                          Icons.arrow_back,
-                color: Color.fromARGB(255, 64, 3, 44),
-                        ),
-                        onPressed: () {
-                          Navigator.pop(context);
-                        },
-                      ),
-                    ),
-                     MaterialButton(
+          Stack(
+        children: [
+          AnimatingBg1(),
+          Container(
+            margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 32),
+            child: Column(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: [
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      SizedBox(
+                        width: 40,
+                        height: 40,
+                        child: MaterialButton(
                           padding: const EdgeInsets.all(0),
                           color: Colors.white,
                           shape: const CircleBorder(),
                           child: Icon(
-                            Icons.alarm_add_rounded,
-                color:   Color.fromARGB(255, 1, 9, 54),
-                        
+                            Icons.arrow_back,
+                            color: Color.fromARGB(255, 64, 3, 44),
                           ),
                           onPressed: () {
-                            Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => Alarmscreenquaf()));
+                            Navigator.pop(context);
                           },
                         ),
-                  ],
-                ),
-                const Text(
-                  " الـتـقــويـم الـبــعدي ",
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 24,
-                    fontFamily: "Cairo",
+                      ),
+                      MaterialButton(
+                        padding: const EdgeInsets.all(0),
+                        color: Colors.white,
+                        shape: const CircleBorder(),
+                        child: Icon(
+                          Icons.alarm_add_rounded,
+                          color: Color.fromARGB(255, 1, 9, 54),
+                        ),
+                        onPressed: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => Alarmscreenquaf()));
+                        },
+                      ),
+                    ],
                   ),
-                ),
-                _questionWidget(),
-                _answerList(),
-                _nextButton(),
-                     ]),
-                     ),
-             ),
-           ],
-         ),
-      
+                  const Text(
+                    " الـتـقــويـم الـبــعدي ",
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 24,
+                      fontFamily: "Cairo",
+                    ),
+                  ),
+                    Container(
+                    child: Column(
+                      children: [
+                    _questionWidget(),
+                    const SizedBox(height:5),
+                       _answerList(),
+                       
+                      ],
+                    ),
+                  ),
+                  _nextButton(),
+                ]),
+          ),
+        ],
+      ),
     );
   }
 

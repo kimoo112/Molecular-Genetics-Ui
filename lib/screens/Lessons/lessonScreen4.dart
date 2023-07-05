@@ -1,7 +1,6 @@
 import 'package:animations/animations.dart';
 import 'package:flutter/material.dart';
 import 'package:insta_image_viewer/insta_image_viewer.dart';
-import 'package:new_gradient_app_bar/new_gradient_app_bar.dart';
 
 class LessonScreen4 extends StatefulWidget {
   final int currentPageIdx; // Define the named parameter here
@@ -788,14 +787,9 @@ class _LessonScreen4State extends State<LessonScreen4> {
     // _currentPageIdx = widget.currentPageIdx;
 
     return Scaffold(
-      appBar: NewGradientAppBar(
-        // brightness: Brightness.light,
+      appBar: AppBar(
         elevation: 20,
-        //
-        gradient: LinearGradient(colors: [
-          Color.fromARGB(206, 10, 10, 10),
-          Color.fromARGB(255, 0, 50, 85)
-        ]),
+          backgroundColor: Color.fromARGB(255, 0, 50, 85),
         title: Text(
           ' Gene Regulation and Mutation',
           textScaleFactor: 1.12,

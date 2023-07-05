@@ -1,7 +1,7 @@
 import 'package:animations/animations.dart';
 import 'package:flutter/material.dart';
 import 'package:insta_image_viewer/insta_image_viewer.dart';
-import 'package:new_gradient_app_bar/new_gradient_app_bar.dart';
+
 
 
 class LessonScreen3 extends StatefulWidget {
@@ -439,14 +439,9 @@ class _LessonScreen3State extends State<LessonScreen3> {
   Widget build(BuildContext context) {
     // _currentPageIdx = widget.currentPageIdx;
     return Scaffold(
-      appBar: NewGradientAppBar(
-        // brightness: Brightness.light,
+      appBar: AppBar(
         elevation: 20,
-        //
-        gradient: LinearGradient(colors: [
-          Color.fromARGB(206, 10, 10, 10),
-          Color.fromARGB(255, 0, 50, 85)
-        ]),
+          backgroundColor: Color.fromARGB(255, 0, 50, 85),
         title: Text(
           ' DNA , RNA and Protein ',
           textScaleFactor: 1.12,

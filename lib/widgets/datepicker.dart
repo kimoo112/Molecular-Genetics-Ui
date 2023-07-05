@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_datetime_picker/flutter_datetime_picker.dart';
 
-import '../screens/Alarms/alarmScreen.dart';
 
 
 class DatePickerTxt extends StatefulWidget {
@@ -18,12 +16,7 @@ class _DatePickerTxtState extends State<DatePickerTxt> {
   Widget build(BuildContext context) {
     return TextButton(
       onPressed: () {
-        DatePicker.showDateTimePicker(
-          context,
-          showTitleActions: true,
-          onChanged: (date) => scheduleTime = date,
-          onConfirm: (date) {},
-        );
+       
       },
       child: const Text(
         'Push The Notify',

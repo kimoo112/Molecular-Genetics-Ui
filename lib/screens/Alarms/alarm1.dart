@@ -1,11 +1,10 @@
-import 'package:flutter/material.dart';
-import 'package:flutter_datetime_picker/flutter_datetime_picker.dart';
-import 'package:new_gradient_app_bar/new_gradient_app_bar.dart';
+// ignore_for_file: unused_local_variable
 
+import 'package:awesome_notifications/awesome_notifications.dart';
+import 'package:flutter/material.dart';
+import 'package:uuid/uuid.dart';
 import '../../widgets/background.dart';
 import '../Notify/noti.dart';
-
-
 
 DateTime scheduleTime = DateTime.now();
 
@@ -17,35 +16,63 @@ class Alarmscreen1 extends StatefulWidget {
 }
 
 class _Alarmscreen1State extends State<Alarmscreen1> {
+  // int id = Uuid().v4().hashCode;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: NewGradientAppBar(elevation: 20,
-        gradient: LinearGradient(colors: [
-             Color.fromARGB(255, 2, 2, 44),
-             Color.fromARGB(255, 0, 0, 134),
-
-        ]),
-        title:Text("Lesson 1 ",style:TextStyle(fontSize:25,fontWeight:FontWeight.bold))
-        ),
-
+      appBar: AppBar(
+          elevation: 20,
+          backgroundColor: Color.fromARGB(255, 0, 50, 85),
+          title: Text("Lesson 1 ",
+              style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold))),
       body: Stack(
         children: [
-                 AnimatingBg4(),
-
+          AnimatingBg4(),
           Center(
-            child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-              children:[
-              DatePickerTxt(),
-                  ScheduleBtn(),
-            ]
-            ),
+            child:
+                Column(mainAxisAlignment: MainAxisAlignment.center, children: [
+              ElevatedButton(
+                  onPressed: () {
+                    AwesomeNotifications()
+                        .requestPermissionToSendNotifications();
+                  },
+                  child: Text("request permisson")),
+              const SizedBox(height: 22),
+              ElevatedButton(
+                  onPressed: () {
+                    setState(() {
+                      int id = Uuid().v4().hashCode;
+                      AwesomeNotifications().createNotification(
+                        content: NotificationContent(
+                            id: id,
+                            channelKey: "karim",
+                            bigPicture: "assets/icons/anim.jpg",
+                            notificationLayout: NotificationLayout.BigPicture,
+                            title: "Hello",
+                            body:
+                                "The sun slowly set over the horizon, streaks of pink."),
+                      );
+                      print("$id");
+                    });
+                  },
+                  child: Text("data")),
+              const SizedBox(height: 22),
+              ElevatedButton(
+                  onPressed: () {
+                    AwesomeNotifications().createNotification(
+                        content: NotificationContent(
+                            id: 10,
+                            channelKey: 'Karim_Channel',
+                            title: 'Simple Notification',
+                            body: 'Simple body',
+                            actionType: ActionType.Default));
+                  },
+                  child: Text("Basic Push"))
+            ]),
           ),
         ],
       ),
-
-
     );
   }
 }
@@ -75,12 +102,12 @@ class ScheduleBtn extends StatelessWidget {
             title: 'Lesson 1',
             body: 'Go To Lesson 1',
             id: 1,
-
             scheduledNotificationDateTime: scheduleTime);
       },
     );
   }
 }
+
 class DatePickerTxt extends StatefulWidget {
   const DatePickerTxt({
     Key? key,
@@ -95,14 +122,14 @@ class _DatePickerTxtState extends State<DatePickerTxt> {
   Widget build(BuildContext context) {
     return TextButton(
       onPressed: () {
-        DatePicker.showDateTimePicker(
-          context,
-          showTitleActions: true,
-          onChanged: (date) => scheduleTime = date,
-          onConfirm: (date) {},
-        );
+        // DatePicker.showDateTimePicker(
+        //   context,
+        //   showTitleActions: true,
+        //   onChanged: (date) => scheduleTime = date,
+        //   onConfirm: (date) {},
+        // );
       },
-      child: const Text(
+      child: Text(
         'Choose Your Time ',
         style: TextStyle(color: Colors.amber),
       ),

@@ -1,9 +1,6 @@
-
-
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:new_gradient_app_bar/new_gradient_app_bar.dart';
 
 import '../../widgets/background.dart';
 import '../Alarms/alarm3.dart';
@@ -19,16 +16,9 @@ class _DetailsScreen3State extends State<DetailsScreen3> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Color(0xffF8F9FB),
-      appBar: NewGradientAppBar(
-        // brightness: Brightness.light,
+      appBar:AppBar(
         elevation: 20,
-        gradient: LinearGradient(colors: [
-          Color.fromARGB(255, 3, 18, 53),
-          Color.fromARGB(255, 17, 35, 77),
-        ]),
-
-        // shadowColor: Color(0xffF0F0F0).withOpacity(.4),
-        // backgroundColor: Color.fromARGB(206, 17, 17, 17),
+          backgroundColor: Color.fromARGB(255, 0, 50, 85),
         title: Text(
           'DNA , RNA , Protein ',
           textScaleFactor: 1.12,
@@ -164,8 +154,7 @@ Widget cardWidget(
                       currentPageIdx: 5,
                     )),
           );
-        } 
-        else if (name == 'الرايبوسوم 2') {
+        } else if (name == 'الرايبوسوم 2') {
           Navigator.push(
             context,
             MaterialPageRoute(
@@ -225,24 +214,20 @@ Widget cardWidget(
                           children: [
                             Align(
                               alignment: Alignment.center,
-                              
-                                child: Text(
-                                  name,
-                                  overflow: TextOverflow.ellipsis,
-                                  softWrap: true,
-                                  maxLines: 1,
-                                  style: TextStyle(
-                                    fontSize: _f * 20,
-                                    fontFamily: "Cairo",
-                                    fontWeight: FontWeight.w400,
-                                    color:
-                                                 Colors.white,
-
-                                  ),
-                                  textAlign: TextAlign.start,
-                                  textDirection: TextDirection.rtl,
+                              child: Text(
+                                name,
+                                overflow: TextOverflow.ellipsis,
+                                softWrap: true,
+                                maxLines: 1,
+                                style: TextStyle(
+                                  fontSize: _f * 20,
+                                  fontFamily: "Cairo",
+                                  fontWeight: FontWeight.w400,
+                                  color: Colors.white,
                                 ),
-                              
+                                textAlign: TextAlign.start,
+                                textDirection: TextDirection.rtl,
+                              ),
                             ),
                           ])),
                 ]),
@@ -290,4 +275,3 @@ Widget infoPage(String name, BuildContext context) {
     ),
   );
 }
-

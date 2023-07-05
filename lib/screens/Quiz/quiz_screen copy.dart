@@ -27,62 +27,60 @@ class _QuizScreen2State extends State<QuizScreen2> {
         children: [
          
                       AnimatingBg2(),
-          SingleChildScrollView(
-            child: Container(
-                margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 32),
-                child:
-                    Column(mainAxisAlignment: MainAxisAlignment.spaceAround, children: [
-                  Row(
-                      mainAxisAlignment:MainAxisAlignment.spaceBetween,
+          Container(
+              margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 32),
+              child:
+                  Column(mainAxisAlignment: MainAxisAlignment.spaceAround, children: [
+                Row(
+                    mainAxisAlignment:MainAxisAlignment.spaceBetween,
 
-                    children: [
-                      SizedBox(
-                        width: 40,
-                        height: 40,
-                        child: MaterialButton(
-                          padding: const EdgeInsets.all(0),
-                          color: Colors.white,
-                          shape: const CircleBorder(),
-                          child: Icon(
-                            Icons.arrow_back,
-                color:   Color.fromARGB(255, 1, 9, 54),
-                        
-                          ),
-                          onPressed: () {
-                            Navigator.pop(context);
-                          },
+                  children: [
+                    SizedBox(
+                      width: 40,
+                      height: 40,
+                      child: MaterialButton(
+                        padding: const EdgeInsets.all(0),
+                        color: Colors.white,
+                        shape: const CircleBorder(),
+                        child: Icon(
+                          Icons.arrow_back,
+              color:   Color.fromARGB(255, 1, 9, 54),
+                      
                         ),
+                        onPressed: () {
+                          Navigator.pop(context);
+                        },
                       ),
-                      MaterialButton(
-                          padding: const EdgeInsets.all(0),
-                          color: Colors.white,
-                          shape: const CircleBorder(),
-                          child: Icon(
-                            Icons.alarm_add_rounded,
-                color:   Color.fromARGB(255, 1, 9, 54),
-                        
-                          ),
-                          onPressed: () {
-                            Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => Alarmscreenqubf()));
-                          },
-                        ),
-                    ],
-                  ),
-                  const Text(
-                    "الـتـقــويـم الـقــبـلـي ",
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 24,
-                      fontFamily: "Cairo",
                     ),
+                    MaterialButton(
+                        padding: const EdgeInsets.all(0),
+                        color: Colors.white,
+                        shape: const CircleBorder(),
+                        child: Icon(
+                          Icons.alarm_add_rounded,
+              color:   Color.fromARGB(255, 1, 9, 54),
+                      
+                        ),
+                        onPressed: () {
+                          Navigator.push(context,
+                MaterialPageRoute(builder: (context) => Alarmscreenqubf()));
+                        },
+                      ),
+                  ],
+                ),
+                const Text(
+                  "الـتـقــويـم الـقــبـلـي ",
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 24,
+                    fontFamily: "Cairo",
                   ),
-                  _questionWidget(),
-                  _answerList(),
-                  _nextButton(),
-                ]),
-              ),
-          ),
+                ),
+                _questionWidget(),
+                _answerList(),
+                _nextButton(),
+              ]),
+            ),
         ],
       ),
       

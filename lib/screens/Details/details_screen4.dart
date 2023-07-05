@@ -7,7 +7,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter/services.dart';
 import 'package:grouped_list/grouped_list.dart';
-import 'package:new_gradient_app_bar/new_gradient_app_bar.dart';
 
 import '../../constants/color.dart';
 import '../../models/lesson.dart';
@@ -24,59 +23,51 @@ class DetailsScreen4 extends StatefulWidget {
 class _DetailsScreen4State extends State<DetailsScreen4> {
   @override
   Widget build(BuildContext context) {
-    return 
-       Scaffold(
-        backgroundColor: Color(0xffF8F9FB),
-        appBar: NewGradientAppBar(
-          // brightness: Brightness.light,
-          elevation: 20,
-          gradient: LinearGradient(colors: [
-            Color.fromARGB(255, 3, 18, 53),
+    return Scaffold(
+      backgroundColor: Color(0xffF8F9FB),
+      appBar:AppBar(
+        elevation: 20,
+          backgroundColor: Color.fromARGB(255, 0, 50, 85),
 
-                       Color.fromARGB(255, 17, 35, 77),
-          ]),
+        // shadowColor: Color(0xffF0F0F0).withOpacity(.4),
+        // backgroundColor: Color.fromARGB(206, 17, 17, 17),
+        title: Text(
+          'التنظيم الجيني والطفرة ',
+          textScaleFactor: 1.12,
+          style: TextStyle(
+              color: Colors.white.withOpacity(.9),
+              fontWeight: FontWeight.w600,
+              fontSize: 22,
+              fontFamily: "Cairo"),
+          textAlign: TextAlign.start,
+          textDirection: TextDirection.rtl,
+        ),
+        centerTitle: true,
 
-          // shadowColor: Color(0xffF0F0F0).withOpacity(.4),
-          // backgroundColor: Color.fromARGB(206, 17, 17, 17),
-          title: Text(
-            'التنظيم الجيني والطفرة ',
-            textScaleFactor: 1.12,
-            style: TextStyle(
-                color: Colors.white.withOpacity(.9),
-                fontWeight: FontWeight.w600,
-                fontSize: 22,
-                fontFamily: "Cairo"),
-                textAlign: TextAlign.start,
-                textDirection: TextDirection.rtl,
-          ),
-          centerTitle: true,
-
-          actions: [
-            IconButton(
-              color: Colors.black.withOpacity(.7),
-              tooltip: ' الـتـكـرار',
-              enableFeedback: true,
-              icon: Icon(
-                Icons.alarm_add,
-                size: 30,
-                color: Colors.white.withOpacity(.7),
-              ),
-              onPressed: () {
-                HapticFeedback.lightImpact();
-                Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => Alarmscreen4()));
-              },
+        actions: [
+          IconButton(
+            color: Colors.black.withOpacity(.7),
+            tooltip: ' الـتـكـرار',
+            enableFeedback: true,
+            icon: Icon(
+              Icons.alarm_add,
+              size: 30,
+              color: Colors.white.withOpacity(.7),
             ),
-          ],
-        ),
-        body: Stack(
-          children: [
-            AnimatingBg3(),
-                mainCardWidget(context),
-          
-          ],
-        ),
-      
+            onPressed: () {
+              HapticFeedback.lightImpact();
+              Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => Alarmscreen4()));
+            },
+          ),
+        ],
+      ),
+      body: Stack(
+        children: [
+          AnimatingBg3(),
+          mainCardWidget(context),
+        ],
+      ),
     );
   }
 }
@@ -98,8 +89,8 @@ Widget mainCardWidget(BuildContext context) {
       cardWithInfoPage('assets/icons/bold 5 ls4.png', 'أنواع 2', context),
       cardWithInfoPage('assets/icons/bold 6 ls4.jpg', 'أسباب الطفرات', context),
       cardWithInfoPage('assets/icons/bold 6 ls4.jpg', 'أسباب 2', context),
-      cardWithInfoPage('assets/icons/Tafra.jfif',
-          'طفرة الخلايا الجسمية والجنسية', context),
+      cardWithInfoPage(
+          'assets/icons/Tafra.jfif', 'طفرة الخلايا الجسمية والجنسية', context),
       cardWithInfoPage(
           'assets/icons/bold 7 ls4.jpg', 'الهندسه الوراثيه', context),
       cardWithInfoPage(
@@ -176,9 +167,7 @@ Widget cardWidget(
                   builder: (context) => LessonScreen4(
                         currentPageIdx: 4,
                       )));
-  
-        }
-         else if (name == 'أنواع 2') {
+        } else if (name == 'أنواع 2') {
           Navigator.push(
             context,
             MaterialPageRoute(
@@ -186,8 +175,7 @@ Widget cardWidget(
                       currentPageIdx: 5,
                     )),
           );
-        } 
-        else if (name == 'أسباب الطفرات') {
+        } else if (name == 'أسباب الطفرات') {
           Navigator.push(
             context,
             MaterialPageRoute(
@@ -203,8 +191,7 @@ Widget cardWidget(
                       currentPageIdx: 7,
                     )),
           );
-        } 
-        else if (name == 'طفرة الخلايا الجسمية والجنسية') {
+        } else if (name == 'طفرة الخلايا الجسمية والجنسية') {
           Navigator.push(
             context,
             MaterialPageRoute(
@@ -212,7 +199,7 @@ Widget cardWidget(
                       currentPageIdx: 8,
                     )),
           );
-        }else if (name == 'الهندسه الوراثيه') {
+        } else if (name == 'الهندسه الوراثيه') {
           Navigator.push(
             context,
             MaterialPageRoute(
@@ -257,13 +244,11 @@ Widget cardWidget(
             context,
             MaterialPageRoute(builder: (context) => DetailsScreen()),
           );
-        } 
+        }
       },
-     
-
-     child: Container(
+      child: Container(
           decoration: BoxDecoration(
-                      color:   Color.fromARGB(255, 3, 18, 53),
+            color: Color.fromARGB(255, 3, 18, 53),
             boxShadow: [
               BoxShadow(color: Colors.black.withOpacity(.04), blurRadius: 30),
             ],
@@ -276,25 +261,26 @@ Widget cardWidget(
             child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                   Container(
-              height: _w / 5.5,
-              width: _w / 3.3,
-              decoration: BoxDecoration(
-                border: Border.all(color: Colors.white, width: 0),
-                color: Colors.black.withOpacity(.2),
-                borderRadius: BorderRadius.circular(5),
-                boxShadow: [
-                  BoxShadow(
-                      color: Colors.black.withOpacity(.1), blurRadius: 30),
+                  Container(
+                    height: _w / 5.5,
+                    width: _w / 3.3,
+                    decoration: BoxDecoration(
+                      border: Border.all(color: Colors.white, width: 0),
+                      color: Colors.black.withOpacity(.2),
+                      borderRadius: BorderRadius.circular(5),
+                      boxShadow: [
+                        BoxShadow(
+                            color: Colors.black.withOpacity(.1),
+                            blurRadius: 30),
                       ],
                       image: DecorationImage(
                         image: AssetImage(image),
-                        fit: BoxFit. cover,
+                        fit: BoxFit.cover,
                       ),
                     ),
                   ),
                   Container(
-                      width:_w / 2.0,
+                      width: _w / 2.0,
                       // color: Colors.black,
                       child: Column(
                           mainAxisAlignment: MainAxisAlignment.start,
@@ -302,24 +288,22 @@ Widget cardWidget(
                           children: [
                             Align(
                               alignment: Alignment.center,
-                             
-                                child: Text(
-                                  name,
-                                  overflow: TextOverflow.ellipsis,
-                                  softWrap: true,
-                                  maxLines: 1,
-                                  style: TextStyle(
-                                    fontSize:  _f * 20,
-                                    fontFamily: "Cairo",
-                                    fontWeight: FontWeight.w400,
-                                               color: Colors.white,
+                              child: Text(
+                                name,
+                                overflow: TextOverflow.ellipsis,
+                                softWrap: true,
+                                maxLines: 1,
+                                style: TextStyle(
+                                  fontSize: _f * 20,
+                                  fontFamily: "Cairo",
+                                  fontWeight: FontWeight.w400,
+                                  color: Colors.white,
 
-                                    // color: Colors.black.withOpacity(.8),
-                                  ),
-                                  textAlign: TextAlign.start,
-                                  textDirection: TextDirection.rtl,
+                                  // color: Colors.black.withOpacity(.8),
                                 ),
-                              
+                                textAlign: TextAlign.start,
+                                textDirection: TextDirection.rtl,
+                              ),
                             ),
                             // Text(
                             //   // 'Tap to know more'

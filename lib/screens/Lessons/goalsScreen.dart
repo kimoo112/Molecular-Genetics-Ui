@@ -1,11 +1,11 @@
 // ignore_for_file: unused_import, duplicate_import, unnecessary_import
 
 import 'package:flutter/material.dart';
-import 'package:new_gradient_app_bar/new_gradient_app_bar.dart';
+
 import 'package:insta_image_viewer/insta_image_viewer.dart';
 import 'dart:ui';
 import 'package:flutter/material.dart';
-import 'package:new_gradient_app_bar/new_gradient_app_bar.dart';
+
 import 'package:insta_image_viewer/insta_image_viewer.dart';
 import 'dart:ui';
 import 'package:animations/animations.dart';
@@ -22,7 +22,7 @@ class GoalsinfScreen extends StatefulWidget {
 }
 
 class _GoalsinfScreenState extends State<GoalsinfScreen> {
-    int _currentPageIdx = 0;
+  int _currentPageIdx = 0;
   SharedAxisTransitionType _transitionType =
       SharedAxisTransitionType.horizontal;
 
@@ -32,7 +32,6 @@ class _GoalsinfScreenState extends State<GoalsinfScreen> {
     _currentPageIdx = widget.currentPageIdx;
   }
 
-
   final _pages = <Widget>[
     // Note: when changed child is of the same type as previous one, set the
     // key property explicitly.
@@ -40,16 +39,14 @@ class _GoalsinfScreenState extends State<GoalsinfScreen> {
     // key: ValueKey(1),
 
     SingleChildScrollView(
-       key: ValueKey(1),
+      key: ValueKey(1),
       child: Container(
-      
           color: Color.fromARGB(255, 1, 19, 31),
           child: Stack(
             children: [
               AnimatingBg2(),
-              Column(
-                children: [
-                   Align(
+              Column(children: [
+                Align(
                   alignment: Alignment.topRight,
                   child: Padding(
                     padding: const EdgeInsets.all(8),
@@ -65,15 +62,12 @@ class _GoalsinfScreenState extends State<GoalsinfScreen> {
                     ),
                   ),
                 ),
-               
                 Align(
                   alignment: Alignment.topRight,
                   child: Padding(
                     padding: const EdgeInsets.all(8),
                     child: Text(
                       "-	تلخص التجارب التي ادت الي استكشاف DNA  بوصفه مادة الوراثة.",
-          
-
                       textDirection: TextDirection.rtl,
                       style: TextStyle(
                         fontFamily: 'Cairo',
@@ -83,14 +77,12 @@ class _GoalsinfScreenState extends State<GoalsinfScreen> {
                     ),
                   ),
                 ),
-               Align(
+                Align(
                   alignment: Alignment.topRight,
                   child: Padding(
                     padding: const EdgeInsets.all(3),
                     child: Text(
                       "-	ترسم وتعنون التركيب الاساسي لجزئ DNA.",
-          
-
                       textDirection: TextDirection.rtl,
                       style: TextStyle(
                         fontFamily: 'Cairo',
@@ -100,14 +92,12 @@ class _GoalsinfScreenState extends State<GoalsinfScreen> {
                     ),
                   ),
                 ),
-                 Align(
+                Align(
                   alignment: Alignment.topRight,
                   child: Padding(
                     padding: const EdgeInsets.all(3),
                     child: Text(
                       "-	تصف التركيب الأساسي للكروموسوم في المخلوقات الحية حقيقية النوي.",
-          
-
                       textDirection: TextDirection.rtl,
                       style: TextStyle(
                         fontFamily: 'Cairo',
@@ -117,78 +107,69 @@ class _GoalsinfScreenState extends State<GoalsinfScreen> {
                     ),
                   ),
                 ),
-                  ]  
-              ),
+              ]),
             ],
-          )
-      ),
+          )),
     ),
-      SingleChildScrollView(
-        child: Container(
-            key: ValueKey(2),
-      
-          color: Color.fromARGB(255, 1, 19, 31),
-            child: Column(
-              children: [  Align(
-                  alignment: Alignment.topRight,
-                  child: Padding(
-                    padding: const EdgeInsets.all(8),
-                    child: Text(
-                      'أهداف الدرس الثاني ',
-                      textDirection: TextDirection.rtl,
-                      style: TextStyle(
-                        fontFamily: 'Cairo',
-                        fontSize: 20,
-                        color: Colors.white,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                  ),
-                ),
-                 Align(
-                  alignment: Alignment.topRight,
-                  child: Padding(
-                    padding: const EdgeInsets.all(3),
-                    child: Text(
-                      "-	تلخص دور الانزيمات في تضاعف DNA.",
-          
-
-                      textDirection: TextDirection.rtl,
-                      style: TextStyle(
-                        fontFamily: 'Cairo',
-                        color: Colors.white,
-                        fontWeight: FontWeight.w400,
-                      ),
-                    ),
-                  ),
-                ),
-                 Align(
-                  alignment: Alignment.topRight,
-                  child: Padding(
-                    padding: const EdgeInsets.all(3),
-                    child: Text(
-                      "-	تفسّر كيف يتم بناء السلسلة الرئيسية والسلسلة الثانوية بصورة مختلفة كل منهما عن الأخري.",
-          
-
-                      textDirection: TextDirection.rtl,
-                      style: TextStyle(
-                        fontFamily: 'Cairo',
-                        color: Colors.white,
-                        fontWeight: FontWeight.w400,
-                      ),
-                    ),
-                  ),
-                ),
-        ])),
-      ),
     SingleChildScrollView(
-          key: ValueKey(3),
-
+      child: Container(
+          key: ValueKey(2),
+          color: Color.fromARGB(255, 1, 19, 31),
+          child: Column(children: [
+            Align(
+              alignment: Alignment.topRight,
+              child: Padding(
+                padding: const EdgeInsets.all(8),
+                child: Text(
+                  'أهداف الدرس الثاني ',
+                  textDirection: TextDirection.rtl,
+                  style: TextStyle(
+                    fontFamily: 'Cairo',
+                    fontSize: 20,
+                    color: Colors.white,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              ),
+            ),
+            Align(
+              alignment: Alignment.topRight,
+              child: Padding(
+                padding: const EdgeInsets.all(3),
+                child: Text(
+                  "-	تلخص دور الانزيمات في تضاعف DNA.",
+                  textDirection: TextDirection.rtl,
+                  style: TextStyle(
+                    fontFamily: 'Cairo',
+                    color: Colors.white,
+                    fontWeight: FontWeight.w400,
+                  ),
+                ),
+              ),
+            ),
+            Align(
+              alignment: Alignment.topRight,
+              child: Padding(
+                padding: const EdgeInsets.all(3),
+                child: Text(
+                  "-	تفسّر كيف يتم بناء السلسلة الرئيسية والسلسلة الثانوية بصورة مختلفة كل منهما عن الأخري.",
+                  textDirection: TextDirection.rtl,
+                  style: TextStyle(
+                    fontFamily: 'Cairo',
+                    color: Colors.white,
+                    fontWeight: FontWeight.w400,
+                  ),
+                ),
+              ),
+            ),
+          ])),
+    ),
+    SingleChildScrollView(
+      key: ValueKey(3),
       child: Container(
           color: Color.fromARGB(255, 1, 19, 31),
-          child: Column(
-            children: [
-               Align(
+          child: Column(children: [
+            Align(
               alignment: Alignment.topRight,
               child: Padding(
                 padding: const EdgeInsets.all(10),
@@ -204,194 +185,166 @@ class _GoalsinfScreenState extends State<GoalsinfScreen> {
                 ),
               ),
             ),
-           Align(
-                  alignment: Alignment.topRight,
-                  child: Padding(
-                    padding: const EdgeInsets.all(8),
-                    child: Text(
-                      "-	تفسّر كيف يشارك DNA  الرسول و DNA  الرايبوسومي و DNA  الناقل في نسخ الجينات وترجمتها.",
-          
-
-                      textDirection: TextDirection.rtl,
-                      style: TextStyle(
-                        fontFamily: 'Cairo',
-                        color: Colors.white,
-                        fontWeight: FontWeight.w400,
-                      ),
-                    ),
+            Align(
+              alignment: Alignment.topRight,
+              child: Padding(
+                padding: const EdgeInsets.all(8),
+                child: Text(
+                  "-	تفسّر كيف يشارك DNA  الرسول و DNA  الرايبوسومي و DNA  الناقل في نسخ الجينات وترجمتها.",
+                  textDirection: TextDirection.rtl,
+                  style: TextStyle(
+                    fontFamily: 'Cairo',
+                    color: Colors.white,
+                    fontWeight: FontWeight.w400,
                   ),
                 ),
-                 Align(
-                  alignment: Alignment.topRight,
-                  child: Padding(
-                    padding: const EdgeInsets.all(8),
-                    child: Text(
-                      "-	تلخص دور انزيم بلمرة RNA  في بناء RNA  الرسول.",
-          
-
-                      textDirection: TextDirection.rtl,
-                      style: TextStyle(
-                        fontFamily: 'Cairo',
-                        color: Colors.white,
-                        fontWeight: FontWeight.w400,
-                      ),
-                    ),
+              ),
+            ),
+            Align(
+              alignment: Alignment.topRight,
+              child: Padding(
+                padding: const EdgeInsets.all(8),
+                child: Text(
+                  "-	تلخص دور انزيم بلمرة RNA  في بناء RNA  الرسول.",
+                  textDirection: TextDirection.rtl,
+                  style: TextStyle(
+                    fontFamily: 'Cairo',
+                    color: Colors.white,
+                    fontWeight: FontWeight.w400,
                   ),
                 ),
-                 Align(
-                  alignment: Alignment.topRight,
-                  child: Padding(
-                    padding: const EdgeInsets.all(8),
-                    child: Text(
-                      "-	تصف كيف يتم نسخ شفرة DNA  الي RNA  الرسول واستخدامها في بناء بروتين معين.",
-          
-
-                      textDirection: TextDirection.rtl,
-                      style: TextStyle(
-                        fontFamily: 'Cairo',
-                        color: Colors.white,
-                        fontWeight: FontWeight.w400,
-                      ),
-                    ),
+              ),
+            ),
+            Align(
+              alignment: Alignment.topRight,
+              child: Padding(
+                padding: const EdgeInsets.all(8),
+                child: Text(
+                  "-	تصف كيف يتم نسخ شفرة DNA  الي RNA  الرسول واستخدامها في بناء بروتين معين.",
+                  textDirection: TextDirection.rtl,
+                  style: TextStyle(
+                    fontFamily: 'Cairo',
+                    color: Colors.white,
+                    fontWeight: FontWeight.w400,
                   ),
                 ),
-
-              ]  
-          )
-      ),
+              ),
+            ),
+          ])),
     ),
     SingleChildScrollView(
       child: Container(
           key: ValueKey(4),
           color: Color.fromARGB(255, 1, 19, 31),
-          child: Column(
-            children: [
-             
-
-                  Align(
-                  alignment: Alignment.topRight,
-                  child: Padding(
-                    padding: const EdgeInsets.all(8),
-                    child: Text(
-                      'أهداف الدرس الرابع ',
-                      textDirection: TextDirection.rtl,
-                      style: TextStyle(
-                        fontFamily: 'Cairo',
-                        fontSize: 20,
-                        color: Colors.white,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
+          child: Column(children: [
+            Align(
+              alignment: Alignment.topRight,
+              child: Padding(
+                padding: const EdgeInsets.all(8),
+                child: Text(
+                  'أهداف الدرس الرابع ',
+                  textDirection: TextDirection.rtl,
+                  style: TextStyle(
+                    fontFamily: 'Cairo',
+                    fontSize: 20,
+                    color: Colors.white,
+                    fontWeight: FontWeight.bold,
                   ),
                 ),
-                 Align(
-                  alignment: Alignment.topRight,
-                  child: Padding(
-                    padding: const EdgeInsets.all(8),
-                    child: Text(
-                      "-	تصف كيف يمكن للبكتيريا أن تنظم جيناتها.",
-          
-
-                      textDirection: TextDirection.rtl,
-                      style: TextStyle(
-                        fontFamily: 'Cairo',
-                        color: Colors.white,
-                        fontWeight: FontWeight.w400,
-                      ),
-                    ),
+              ),
+            ),
+            Align(
+              alignment: Alignment.topRight,
+              child: Padding(
+                padding: const EdgeInsets.all(8),
+                child: Text(
+                  "-	تصف كيف يمكن للبكتيريا أن تنظم جيناتها.",
+                  textDirection: TextDirection.rtl,
+                  style: TextStyle(
+                    fontFamily: 'Cairo',
+                    color: Colors.white,
+                    fontWeight: FontWeight.w400,
                   ),
                 ),
-                 Align(
-                  alignment: Alignment.topRight,
-                  child: Padding(
-                    padding: const EdgeInsets.all(8),
-                    child: Text(
-                      "-	تناقش كيف تُنظم الخلايا الحقيقية النوي عملية نسخ الجين.",
-          
-
-                      textDirection: TextDirection.rtl,
-                      style: TextStyle(
-                        fontFamily: 'Cairo',
-                        color: Colors.white,
-                        fontWeight: FontWeight.w400,
-                      ),
-                    ),
+              ),
+            ),
+            Align(
+              alignment: Alignment.topRight,
+              child: Padding(
+                padding: const EdgeInsets.all(8),
+                child: Text(
+                  "-	تناقش كيف تُنظم الخلايا الحقيقية النوي عملية نسخ الجين.",
+                  textDirection: TextDirection.rtl,
+                  style: TextStyle(
+                    fontFamily: 'Cairo',
+                    color: Colors.white,
+                    fontWeight: FontWeight.w400,
                   ),
                 ),
-                 Align(
-                  alignment: Alignment.topRight,
-                  child: Padding(
-                    padding: const EdgeInsets.all(8),
-                    child: Text(
-                      "-	تلخص الأنواع المختلفة من الطفرات.",
-          
-
-                      textDirection: TextDirection.rtl,
-                      style: TextStyle(
-                        fontFamily: 'Cairo',
-                        color: Colors.white,
-                        fontWeight: FontWeight.w400,
-                      ),
-                    ),
+              ),
+            ),
+            Align(
+              alignment: Alignment.topRight,
+              child: Padding(
+                padding: const EdgeInsets.all(8),
+                child: Text(
+                  "-	تلخص الأنواع المختلفة من الطفرات.",
+                  textDirection: TextDirection.rtl,
+                  style: TextStyle(
+                    fontFamily: 'Cairo',
+                    color: Colors.white,
+                    fontWeight: FontWeight.w400,
                   ),
                 ),
-                 Align(
-                  alignment: Alignment.topRight,
-                  child: Padding(
-                    padding: const EdgeInsets.all(8),
-                    child: Text(
-                      "-	تصف كيف تساعد الهندسة الوراثية علي التحكم في DNA.",
-          
-
-                      textDirection: TextDirection.rtl,
-                      style: TextStyle(
-                        fontFamily: 'Cairo',
-                        color: Colors.white,
-                        fontWeight: FontWeight.w400,
-                      ),
-                    ),
+              ),
+            ),
+            Align(
+              alignment: Alignment.topRight,
+              child: Padding(
+                padding: const EdgeInsets.all(8),
+                child: Text(
+                  "-	تصف كيف تساعد الهندسة الوراثية علي التحكم في DNA.",
+                  textDirection: TextDirection.rtl,
+                  style: TextStyle(
+                    fontFamily: 'Cairo',
+                    color: Colors.white,
+                    fontWeight: FontWeight.w400,
                   ),
                 ),
-                    Align(
-                  alignment: Alignment.topRight,
-                  child: Padding(
-                    padding: const EdgeInsets.all(8),
-                    child: Text(
-                      "-	تفسر كيف تستعمل المعلومات من الجينوم البشري في تحسين حياة الانسان. ",
-          
-
-                      textDirection: TextDirection.rtl,
-                      style: TextStyle(
-                        fontFamily: 'Cairo',
-                        color: Colors.white,
-                        fontWeight: FontWeight.w400,
-                      ),
-                    ),
+              ),
+            ),
+            Align(
+              alignment: Alignment.topRight,
+              child: Padding(
+                padding: const EdgeInsets.all(8),
+                child: Text(
+                  "-	تفسر كيف تستعمل المعلومات من الجينوم البشري في تحسين حياة الانسان. ",
+                  textDirection: TextDirection.rtl,
+                  style: TextStyle(
+                    fontFamily: 'Cairo',
+                    color: Colors.white,
+                    fontWeight: FontWeight.w400,
                   ),
                 ),
-                    Align(
-                  alignment: Alignment.topRight,
-                  child: Padding(
-                    padding: const EdgeInsets.all(8),
-                    child: Text(
-                      "-	تلخص استعمال الهندسة الوراثية في تحسين حياة الانسان.",
-          
-
-                      textDirection: TextDirection.rtl,
-                      style: TextStyle(
-                        fontFamily: 'Cairo',
-                        color: Colors.white,
-                        fontWeight: FontWeight.w400,
-                      ),
-                    ),
+              ),
+            ),
+            Align(
+              alignment: Alignment.topRight,
+              child: Padding(
+                padding: const EdgeInsets.all(8),
+                child: Text(
+                  "-	تلخص استعمال الهندسة الوراثية في تحسين حياة الانسان.",
+                  textDirection: TextDirection.rtl,
+                  style: TextStyle(
+                    fontFamily: 'Cairo',
+                    color: Colors.white,
+                    fontWeight: FontWeight.w400,
                   ),
                 ),
-              ]  
-          )
-      ),
+              ),
+            ),
+          ])),
     ),
-
-
   ];
 
   // int _currentPageIdx = 0;
@@ -403,15 +356,9 @@ class _GoalsinfScreenState extends State<GoalsinfScreen> {
     // _currentPageIdx = widget.currentPageIdx;
 
     return Scaffold(
-      appBar:NewGradientAppBar(
-        // brightness: Brightness.light,
+      appBar: AppBar(
         elevation: 20,
-        // 
-          gradient: LinearGradient(colors: [
-            
-              Color.fromARGB(255, 0, 7, 29),
-             Color.fromARGB(255, 1, 15, 61),
-          Color.fromARGB(251, 4, 37, 129),]),  
+          backgroundColor: Color.fromARGB(255, 0, 50, 85),
         title: Text(
           'GOALS',
           textScaleFactor: 1.12,
@@ -421,9 +368,7 @@ class _GoalsinfScreenState extends State<GoalsinfScreen> {
               fontFamily: "Poppins"),
         ),
       ),
-            backgroundColor:Color.fromARGB(255, 1, 20, 32),
-
-
+      backgroundColor: Color.fromARGB(255, 1, 20, 32),
       body: Center(
         child: Column(
           children: <Widget>[
@@ -441,23 +386,26 @@ class _GoalsinfScreenState extends State<GoalsinfScreen> {
                 child: _pages[_currentPageIdx],
               ),
             ),
-                  Padding(
+            Padding(
               padding: const EdgeInsets.all(8.0),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: <Widget>[
-                   TextButton(
+                  TextButton(
                     onPressed: this._currentPageIdx == 0
                         ? null
                         : () => setState(() => this._currentPageIdx--),
-                    child: const Text('الـسـابـق',style: TextStyle(fontFamily: "Cairo")),
+                    child: const Text('الـسـابـق',
+                        style: TextStyle(fontFamily: "Cairo")),
                   ),
-                 
                   ElevatedButton(
                     onPressed: this._currentPageIdx == 3
                         ? null
                         : () => setState(() => this._currentPageIdx++),
-                    child: const Text('الـتـالـي',style: TextStyle(fontFamily: "Cairo"),),
+                    child: const Text(
+                      'الـتـالـي',
+                      style: TextStyle(fontFamily: "Cairo"),
+                    ),
                   ),
                 ],
               ),
@@ -472,14 +420,11 @@ class _GoalsinfScreenState extends State<GoalsinfScreen> {
   Widget _buildControlBar() {
     return Container(
       decoration: BoxDecoration(
-      gradient: LinearGradient(
-      colors: [
+          gradient: LinearGradient(colors: [
         Color.fromARGB(255, 0, 7, 29),
-             Color.fromARGB(255, 1, 15, 61),
-          Color.fromARGB(251, 4, 37, 129),
-      ]
-    )
-      ),
+        Color.fromARGB(255, 1, 15, 61),
+        Color.fromARGB(251, 4, 37, 129),
+      ])),
       //  Theme.of(context).primaryColorLight
       child: Column(
         mainAxisSize: MainAxisSize.min,

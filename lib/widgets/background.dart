@@ -1,5 +1,6 @@
 import 'dart:async';
 
+import 'package:education_app/constants/color.dart';
 import 'package:flutter/material.dart';
 
 class AnimatingBg1 extends StatefulWidget {
@@ -133,8 +134,6 @@ class _AnimatingBg3State extends State<AnimatingBg3>
     Color.fromARGB(255, 222, 222, 223),
     Color.fromARGB(255, 171, 170, 175),
     Color.fromARGB(255, 156, 160, 175),
-    
-
     Color.fromARGB(255, 14, 2, 73),
     Color.fromARGB(255, 114, 114, 116),
   ];
@@ -183,6 +182,7 @@ class _AnimatingBg3State extends State<AnimatingBg3>
     );
   }
 }
+
 class AnimatingBg4 extends StatefulWidget {
   @override
   _AnimatingBg4State createState() => _AnimatingBg4State();
@@ -191,17 +191,16 @@ class AnimatingBg4 extends StatefulWidget {
 class _AnimatingBg4State extends State<AnimatingBg4>
     with TickerProviderStateMixin {
   List<Color> colorList = [
-    Color.fromARGB(255, 0, 118, 228),
-    Color.fromARGB(255, 22, 1, 105),
-    Color.fromARGB(255, 66, 0, 87),
-   
-    Color.fromARGB(255, 14, 2, 73),
-    Color.fromARGB(255, 1, 9, 54),
+    cNavy,
+    cCoral,
+    Color.fromARGB(255, 90, 79, 134),
+    Color.fromARGB(255, 39, 24, 110),
+    Color.fromARGB(255, 102, 103, 112),
   ];
   List<Alignment> alignmentList = [Alignment.topCenter, Alignment.bottomCenter];
   int index = 0;
-  Color bottomColor = Color(0xff092646);
-  Color topColor = Color.fromARGB(255, 2, 2, 44);
+  Color bottomColor = cCoral;
+  Color topColor = Color(0xFF02022C);
   Alignment begin = Alignment.bottomCenter;
   Alignment end = Alignment.topCenter;
 
@@ -243,6 +242,7 @@ class _AnimatingBg4State extends State<AnimatingBg4>
     );
   }
 }
+
 class AnimatingBg5 extends StatefulWidget {
   @override
   _AnimatingBg5State createState() => _AnimatingBg5State();
@@ -251,16 +251,15 @@ class AnimatingBg5 extends StatefulWidget {
 class _AnimatingBg5State extends State<AnimatingBg5>
     with TickerProviderStateMixin {
   List<Color> colorList = [
-    Color.fromARGB(255, 0, 7, 29),
-             Color.fromARGB(255, 175, 190, 236),
-          Color.fromARGB(251, 4, 37, 129),
-   
+    cNavy,
+  cNavy2,
+  cYellow,
+    Color.fromARGB(251, 4, 37, 129),
     Color.fromARGB(255, 74, 59, 151),
-    Color.fromARGB(255, 255, 255, 255),
   ];
   List<Alignment> alignmentList = [Alignment.topCenter, Alignment.bottomCenter];
   int index = 0;
-  Color bottomColor = Color.fromARGB(255, 191, 193, 196);
+  Color bottomColor = Color.fromARGB(255, 45, 62, 88);
   Color topColor = Color.fromARGB(255, 2, 2, 44);
   Alignment begin = Alignment.bottomCenter;
   Alignment end = Alignment.topCenter;
@@ -303,4 +302,3 @@ class _AnimatingBg5State extends State<AnimatingBg5>
     );
   }
 }
-

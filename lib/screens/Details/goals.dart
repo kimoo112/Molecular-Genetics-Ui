@@ -1,11 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:new_gradient_app_bar/new_gradient_app_bar.dart';
 
 import '../../widgets/background.dart';
 import '../Lessons/goalsScreen.dart';
-
 
 class GoalsScreen extends StatefulWidget {
   @override
@@ -17,15 +15,9 @@ class _GoalsScreenState extends State<GoalsScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
-      appBar: NewGradientAppBar(
-        // brightness: Brightness.light,
+      appBar: AppBar(
         elevation: 20,
-        gradient: LinearGradient(colors: [
-             Color.fromARGB(255, 0, 7, 29),
-             Color.fromARGB(255, 1, 15, 61),
-          Color.fromARGB(251, 4, 37, 129),
-          // Color.fromARGB(255, 0, 50, 85)
-        ]),
+          backgroundColor: Color.fromARGB(255, 0, 50, 85),
         // shadowColor: Color(0xffF0F0F0).withOpacity(.4),
         // backgroundColor: Color.fromARGB(206, 17, 17, 17),
         title: Text(
@@ -40,7 +32,6 @@ class _GoalsScreenState extends State<GoalsScreen> {
           textDirection: TextDirection.rtl,
         ),
         centerTitle: true,
-      
       ),
       body: Stack(
         children: [
@@ -56,14 +47,12 @@ Widget mainCardWidget(BuildContext context) {
   return ListView(
     physics: BouncingScrollPhysics(parent: AlwaysScrollableScrollPhysics()),
     children: [
-      cardWithInfoPage(
-          'assets/icons/dnaa.jpg', 'أهداف الدرس الأول ', context),
+      cardWithInfoPage('assets/icons/dnaa.jpg', 'أهداف الدرس الأول ', context),
       cardWithInfoPage(
           'assets/icons/Enzymes .jpg', 'أهداف الدرس الثاني ', context),
       cardWithInfoPage('assets/icons/RNAA.jpg', 'أهداف الدرس الثالث ', context),
-      cardWithInfoPage('assets/icons/Bacteria.jpg', 'أهداف الدرس الرابع ', context),
-
-   
+      cardWithInfoPage(
+          'assets/icons/Bacteria.jpg', 'أهداف الدرس الرابع ', context),
       SizedBox(
         height: MediaQuery.of(context).size.width / 7,
       ),
@@ -123,13 +112,15 @@ Widget cardWidget(
                       currentPageIdx: 3,
                     )),
           );
-        } 
+        }
       },
       child: Container(
           decoration: BoxDecoration(
             color: Color.fromARGB(255, 0, 7, 29),
             boxShadow: [
-              BoxShadow(color: Color.fromARGB(255, 0, 0, 0).withOpacity(.04), blurRadius: 30),
+              BoxShadow(
+                  color: Color.fromARGB(255, 0, 0, 0).withOpacity(.04),
+                  blurRadius: 30),
             ],
             borderRadius: BorderRadius.circular(10),
           ),
@@ -178,7 +169,7 @@ Widget cardWidget(
                                     fontSize: _f * 20,
                                     fontFamily: "Cairo",
                                     fontWeight: FontWeight.w400,
-                                    color:Colors.white,
+                                    color: Colors.white,
                                   ),
                                   textAlign: TextAlign.start,
                                   textDirection: TextDirection.rtl,
@@ -217,8 +208,6 @@ Widget infoPage(String name, BuildContext context) {
           fontWeight: FontWeight.w600,
         ),
       ),
- 
     ),
   );
 }
-

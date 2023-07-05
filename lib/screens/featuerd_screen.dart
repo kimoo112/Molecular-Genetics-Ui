@@ -1,9 +1,13 @@
+// ignore_for_file: unused_import, unused_field
+
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../constants/color.dart';
 import '../constants/size.dart';
 import '../models/category.dart';
+import '../widgets/drawer.dart';
 import '../widgets/search_testfield.dart';
 import 'Details/course_screen.dart';
 import 'Details/details_screen.dart';
@@ -12,21 +16,69 @@ import 'Details/details_screen3.dart';
 import 'Details/details_screen4.dart';
 
 class FeaturedScreen extends StatefulWidget {
-  const FeaturedScreen({Key? key}) : super(key: key);
+  final String name;
+  const FeaturedScreen({Key? key, required this.name}) : super(key: key);
 
   @override
   _FeaturedScreenState createState() => _FeaturedScreenState();
 }
 
-class _FeaturedScreenState extends State<FeaturedScreen> {
+class _FeaturedScreenState extends State<FeaturedScreen>
+    with TickerProviderStateMixin {
+  late AnimationController _animationController;
+  late Animation<double> _animation1;
+  late Animation<double> _animation2;
+  late Animation<double> _animation3;
+
+  bool _bool = true;
+
+  @override
+  void initState() {
+    super.initState();
+
+    _animationController =
+        AnimationController(vsync: this, duration: Duration(milliseconds: 600));
+
+    _animation1 = Tween<double>(begin: 0, end: 20).animate(CurvedAnimation(
+      parent: _animationController,
+      curve: Curves.easeOut,
+      reverseCurve: Curves.easeIn,
+    ))
+      ..addListener(() {
+        setState(() {});
+      })
+      ..addStatusListener((status) {
+        if (status == AnimationStatus.dismissed) {
+          _bool = true;
+        }
+      });
+    _animation2 = Tween<double>(begin: 0, end: .3).animate(_animationController)
+      ..addListener(() {
+        setState(() {});
+      });
+    _animation3 = Tween<double>(begin: .9, end: 1).animate(CurvedAnimation(
+        parent: _animationController,
+        curve: Curves.fastLinearToSlowEaseIn,
+        reverseCurve: Curves.ease))
+      ..addListener(() {
+        setState(() {});
+      });
+  }
+
+  @override
+  void dispose() {
+    _animationController.dispose();
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     return AnnotatedRegion<SystemUiOverlayStyle>(
       value: SystemUiOverlayStyle.light,
       child: Scaffold(
         body: Column(
-          children: const [
-            AppBar(),
+          children: [
+            AppBar(name: widget.name,),
             Body(),
           ],
         ),
@@ -40,62 +92,61 @@ class Body extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SingleChildScrollView(
-      child: Column(
-        children: [
-          Padding(
-            padding: const EdgeInsets.only(top: 10, left: 20, right: 20),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                TextButton(
-                  onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => CourseScreen(),
-                      ),
-                    );
-                  },
-                  child: Text(
-                    "...المـزيـد",
-                    style: TextStyle(
-                      fontFamily: "Cairo",
-                      fontSize: 15,
-                      fontWeight: FontWeight.w500,
-                    ).copyWith(color: kPrimaryColor),
-                  ),
+    return Column(
+      children: [
+        Padding(
+          padding: const EdgeInsets.only(top: 10, left: 20, right: 20),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              TextButton(
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => CourseScreen(),
+                    ),
+                  );
+                },
+                child: Text(
+                  "...المـزيـد",
+                  style: TextStyle(
+                    fontFamily: "Cairo",
+                    fontSize: 15,
+                    fontWeight: FontWeight.w500,
+                  ).copyWith(color: cPrimary),
                 ),
-                Text("الـدروس",
-                    style: TextStyle(
-                      fontFamily: "Cairo",
-                      fontSize: 22,
-                      fontWeight: FontWeight.w500,
-                    )),
-              ],
-            ),
+              ),
+              Text("الـدروس",
+                  style: TextStyle(
+                    fontFamily: "Cairo",
+                    color: Colors.black,
+                    fontSize: 22,
+                    fontWeight: FontWeight.w500,
+                  )),
+            ],
           ),
-          GridView.builder(
-            shrinkWrap: true,
-            padding: const EdgeInsets.symmetric(
-              horizontal: 20,
-              vertical: 8,
-            ),
-            gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-              crossAxisCount: 2,
-              childAspectRatio: 0.8,
-              crossAxisSpacing: 20,
-              mainAxisSpacing: 24,
-            ),
-            itemBuilder: (context, index) {
-              return CategoryCard(
-                category: categoryList[index],
-              );
-            },
-            itemCount: categoryList.length,
+        ),
+        GridView.builder(
+          shrinkWrap: true,
+          padding: const EdgeInsets.symmetric(
+            horizontal: 20,
+            vertical: 8,
           ),
-        ],
-      ),
+          gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+            crossAxisCount: 2,
+            childAspectRatio: 0.8,
+            crossAxisSpacing: 20,
+            mainAxisSpacing: 24,
+          ),
+          itemBuilder: (context, index) {
+            return CategoryCard(
+              category: categoryList[index],
+            );
+          },
+          itemCount: categoryList.length,
+        ),
+      ],
     );
   }
 }
@@ -142,6 +193,7 @@ class CategoryCard extends StatelessWidget {
         }
       },
       child: Container(
+        width: MediaQuery.of(context).size.width * 0.05,
         padding: const EdgeInsets.all(8),
         decoration: BoxDecoration(
           color: Colors.white,
@@ -163,14 +215,15 @@ class CategoryCard extends StatelessWidget {
                 borderRadius: BorderRadius.circular(10),
                 child: Image.asset(
                   category.thumbnail,
-                  height: kCategoryCardImageSize,
+                  height: MediaQuery.of(context).size.height * 0.15,
+                  fit: BoxFit.cover,
                 ),
               ),
             ),
             // add more widgets as needed
 
             const SizedBox(
-              height: 8,
+              height: 14,
             ),
             Align(
               alignment: Alignment.topCenter,
@@ -178,24 +231,11 @@ class CategoryCard extends StatelessWidget {
                 category.name,
                 style: TextStyle(
                   fontFamily: "Cairo",
-                  fontSize: 13,
-                  //  MediaQuery.of(context).size.width * 0.02, // adjust the font size based on screen width
+                  color: Colors.black,
+                  fontSize: MediaQuery.of(context).size.width * 0.046,
                 ),
               ),
             ),
-// Align(
-//   alignment: Alignment.topCenter,
-//   child: Text(
-//     "${category.lessonName.toString()} ",
-//     style: TextStyle(
-//       fontFamily: "Cairo",
-//       fontSize:8,
-//       // MediaQuery.of(context).size.width * 0.015, // adjust the font size based on screen width
-//     ),
-//     textDirection: TextDirection.rtl,
-//     textAlign: TextAlign.center,
-//   ),
-// ),
           ],
         ),
       ),
@@ -203,24 +243,77 @@ class CategoryCard extends StatelessWidget {
   }
 }
 
-class AppBar extends StatelessWidget {
+class AppBar extends StatefulWidget {
+  final name;
   const AppBar({
     Key? key,
+    required this.name,
   }) : super(key: key);
+
+  @override
+  State<AppBar> createState() => _AppBarState();
+}
+
+class _AppBarState extends State<AppBar> with TickerProviderStateMixin {
+  late AnimationController _animationController;
+  late Animation<double> _animation1;
+  late Animation<double> _animation2;
+  late Animation<double> _animation3;
+
+  bool _bool = true;
+
+  @override
+  void initState() {
+    super.initState();
+
+    _animationController =
+        AnimationController(vsync: this, duration: Duration(milliseconds: 600));
+
+    _animation1 = Tween<double>(begin: 0, end: 20).animate(CurvedAnimation(
+      parent: _animationController,
+      curve: Curves.easeOut,
+      reverseCurve: Curves.easeIn,
+    ))
+      ..addListener(() {
+        setState(() {});
+      })
+      ..addStatusListener((status) {
+        if (status == AnimationStatus.dismissed) {
+          _bool = true;
+        }
+      });
+    _animation2 = Tween<double>(begin: 0, end: .3).animate(_animationController)
+      ..addListener(() {
+        setState(() {});
+      });
+    _animation3 = Tween<double>(begin: .9, end: 1).animate(CurvedAnimation(
+        parent: _animationController,
+        curve: Curves.fastLinearToSlowEaseIn,
+        reverseCurve: Curves.ease))
+      ..addListener(() {
+        setState(() {});
+      });
+  }
+
+  @override
+  void dispose() {
+    _animationController.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
     return Container(
       padding: EdgeInsets.only(
         top: MediaQuery.of(context).size.height *
-            0.1, // adjust top padding based on screen height
+            0.051, // adjust top padding based on screen height
         left: MediaQuery.of(context).size.width *
             0.05, // adjust left padding based on screen width
         right: MediaQuery.of(context).size.width *
             0.05, // adjust right padding based on screen width
       ),
       height: MediaQuery.of(context).size.height *
-          0.3, // adjust height based on screen height
+          0.23, // adjust height based on screen height
       width: double.infinity,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.only(
@@ -237,32 +330,25 @@ class AppBar extends StatelessWidget {
           ],
         ),
       ),
+      alignment: Alignment.center,
       child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              Text(
-                // "Welcome,\nTo My App",
-                "مرحبا بك فى برنامج الوراثة الجزيئية",
+          Text(
+            // "Welcome,\nTo My App",
+            "مرحبا بك ${widget.name} في برنامج الوراثة الجزيئية",
 
-                style: TextStyle(
-                  fontFamily: "Cairo",
-                  letterSpacing: 1,
-                  fontWeight: FontWeight.bold,
-                  fontSize: MediaQuery.of(context).size.width * 0.04,
-                  color: Colors.white,
-                ),
-              ),
-              //   CircleButton(
-              //     icon: Icons.notifications,
-              //     onPressed: () {},
-              //   ),
-            ],
+            style: TextStyle(
+              fontFamily: "Cairo",
+              letterSpacing: 1,
+              fontWeight: FontWeight.bold,
+              fontSize: 15.sp,
+              color: Colors.white,
+            ),
+            textDirection: TextDirection.rtl,
           ),
           const SizedBox(
-            height: 25,
+            height: 15,
           ),
           const SearchTextField()
         ],

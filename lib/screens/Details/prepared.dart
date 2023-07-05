@@ -1,7 +1,6 @@
 // ignore_for_file: must_be_immutable
 
 import 'package:flutter/material.dart';
-import 'package:new_gradient_app_bar/new_gradient_app_bar.dart';
 
 class PreparedScreen extends StatelessWidget {
   var d = Container(
@@ -20,21 +19,20 @@ class PreparedScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Color.fromARGB(255, 0, 11, 31),
-      appBar: NewGradientAppBar(
-          gradient: LinearGradient(colors: [
-            Color.fromARGB(255, 0, 11, 31),
-            Color.fromARGB(255, 3, 18, 53),
-          ]),
-          title: Text(
-            "الإعـداد / الإشـراف",
-            style: TextStyle(fontFamily: "Cairo", fontSize: 25,fontWeight: FontWeight.w400),
-            textDirection: TextDirection.rtl,
-            textAlign: TextAlign.start,
-            
-          ),
-          centerTitle: true,
-          ),
-          
+      appBar:AppBar(
+        elevation: 20,
+          backgroundColor: Color.fromARGB(255, 0, 50, 85),
+        title: Text(
+          "الإعـداد / الإشـراف",
+          style: TextStyle(
+            color: Colors. white,
+
+              fontFamily: "Cairo", fontSize: 25, fontWeight: FontWeight.w400),
+          textDirection: TextDirection.rtl,
+          textAlign: TextAlign.start,
+        ),
+        centerTitle: true,
+      ),
       body: DefaultTextStyle(
         style: TextStyle(
             fontSize: 10,
@@ -47,38 +45,25 @@ class PreparedScreen extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.end,
             children: [
               Row(
-                mainAxisAlignment: MainAxisAlignment.start,
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Container(
-                      width: 100, child: Image.asset("assets/icons/UNI.jpeg")),
+                  ClipRRect(
+                      borderRadius: BorderRadius.circular(10), child: Image.asset("assets/icons/UNI.jpeg",width: 100,),),
                   SizedBox(
                     width: 10,
                   ),
-                  Flexible(
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Align(
-                          alignment: Alignment.topRight,
-                          child: Text(
-                            'المملـكة العربية السعـودية',
-                            textDirection: TextDirection.rtl,
-                          ),
-                        ),
-                        Align(
-                            alignment: Alignment.topRight,
-                            child: Text('وزارة التعليم')),
-                        Align(
-                            alignment: Alignment.topRight,
-                            child: Text('جامعة أم القرى')),
-                        Align(
-                            alignment: Alignment.topRight,
-                            child: Text('كلية التربية')),
-                        Align(
-                            alignment: Alignment.topRight,
-                            child: Text('قسم المناهج وطرق التدريس')),
-                      ],
-                    ),
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.end,
+                    children: [
+                      Text(
+                        'المملـكة العربية السعـودية',
+                        textDirection: TextDirection.rtl,
+                      ),
+                      Text('وزارة التعليم'),
+                      Text('جامعة أم القرى'),
+                      Text('كلية التربية'),
+                      Text('قسم المناهج وطرق التدريس'),
+                    ],
                   ),
                 ],
               ),

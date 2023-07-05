@@ -4,7 +4,6 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter/services.dart';
-import 'package:new_gradient_app_bar/new_gradient_app_bar.dart';
 
 import '../../constants/color.dart';
 import '../../models/lesson.dart';
@@ -22,13 +21,9 @@ class _DetailsScreenState extends State<DetailsScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
-      appBar: NewGradientAppBar(
-        // brightness: Brightness.light,
+      appBar: AppBar(
         elevation: 20,
-        gradient: LinearGradient(colors: [
-          Color.fromARGB(206, 10, 10, 10),
-          Color.fromARGB(255, 0, 50, 85)
-        ]),
+        backgroundColor: Color.fromARGB(255, 0, 50, 85),
         // shadowColor: Color(0xffF0F0F0).withOpacity(.4),
         // backgroundColor: Color.fromARGB(206, 17, 17, 17),
         title: Text(

@@ -2,6 +2,7 @@
 import 'package:education_app/screens/Details/prepared.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../constants/color.dart';
 import '../../models/course.dart';
@@ -61,7 +62,7 @@ class _CourseScreenState extends State<CourseScreen> {
                       Align(
                         child: Text(
                           'الـــدروس',
-                          style:TextStyle(fontFamily: "Cairo",fontSize: 30,fontWeight: FontWeight.bold) 
+                          style:TextStyle(fontFamily: "Cairo",fontSize: 30,fontWeight: FontWeight.bold,color: Colors.black) 
                           // Theme.of(context).textTheme.displayMedium,
                           
                         ),
@@ -183,7 +184,8 @@ class CourseContainer extends StatelessWidget {
               borderRadius: BorderRadius.circular(10),
               child: Image.asset(
                 course.thumbnail,
-                height: 60,
+                width: 100,
+                // height: 60,
               ),
             ),
             const SizedBox(
@@ -195,12 +197,20 @@ class CourseContainer extends StatelessWidget {
 
                 children: [
                   Text(course.name
-                  ,style: TextStyle(fontFamily: "Cairo"),),
-                  Text(
-
-                    "${course.author}",
-                    style: Theme.of(context).textTheme.bodySmall,
-                    textAlign: TextAlign.end,
+                  ,style: TextStyle(fontSize: 15,fontFamily: "Cairo", color: Colors.black),),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    
+                  
+                    children: [
+                      Text(
+                  
+                        "${course.author}",
+                        style: TextStyle(overflow: TextOverflow.fade,fontSize: 13.sp, fontFamily: "Poppins",color: Color(0xFF242323),fontWeight: FontWeight.w300),
+                        textAlign: TextAlign.end,
+                        
+                      ),
+                    ],
                   ),
                   const SizedBox(
                     height: 5,
@@ -208,8 +218,8 @@ class CourseContainer extends StatelessWidget {
                   LinearProgressIndicator(
                     value: course.completedPercentage,
                     backgroundColor: Colors.black12,
-                    color: kPrimaryColor,
-                  )
+                    color: cPrimary,
+                  ),
                 ],
               ),
             ),
