@@ -1,8 +1,11 @@
+// ignore_for_file: unused_field
+
 import 'package:education_app/constants/color.dart';
 import 'package:education_app/constants/size.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 
 import '../../widgets/button.dart';
@@ -16,10 +19,17 @@ class LoginPage extends StatefulWidget {
 
 class _LoginPageState extends State<LoginPage>
     with SingleTickerProviderStateMixin {
-  String userName = '';
+  static String userName = '';
   late AnimationController _controller;
   late Animation<double> _opacity;
   late Animation<double> _transform;
+
+  Future Ksignin() async {
+    await FirebaseAuth.instance.signInWithEmailAndPassword(
+      email: emailCT.text.trim(),
+      password: passwordCT.text.trim(),
+    );
+  }
 
   @override
   void initState() {
@@ -86,22 +96,22 @@ class _LoginPageState extends State<LoginPage>
               height: KHieght(context),
               alignment: Alignment.center,
               decoration: BoxDecoration(
-                  gradient: LinearGradient(
-                    begin: Alignment.topLeft,
-                    end: Alignment.bottomRight,
-                    colors: [
-                      cLight,
-                      cBlue,
-                    ],
-                  ),
-              //     image: DecorationImage(
-              //   image: AssetImage(
-              //     "assets/icons/Tafra.jfif",
-              //   ),
-              //   fit: BoxFit.cover,
-              //   filterQuality: FilterQuality.high,
-              //   colorFilter: ColorFilter.mode(Colors.black.withOpacity(0.3), BlendMode.srcOver),
-              // )
+                gradient: LinearGradient(
+                  begin: Alignment.topLeft,
+                  end: Alignment.bottomRight,
+                  colors: [
+                    cLight,
+                    cBlue,
+                  ],
+                ),
+                //     image: DecorationImage(
+                //   image: AssetImage(
+                //     "assets/icons/Tafra.jfif",
+                //   ),
+                //   fit: BoxFit.cover,
+                //   filterQuality: FilterQuality.high,
+                //   colorFilter: ColorFilter.mode(Colors.black.withOpacity(0.3), BlendMode.srcOver),
+                // )
               ),
               child: Opacity(
                 opacity: _opacity.value,
@@ -150,9 +160,8 @@ class _LoginPageState extends State<LoginPage>
                         Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            ProgressBtton(
-                              controller: usernameCT.text,
-                            ),
+                            // ElevButton(),
+                            ProgressBtton(controller: usernameCT.text),
                             SizedBox(width: size.width / 25),
                             Container(
                               width: size.width / 2.6,
@@ -200,6 +209,17 @@ class _LoginPageState extends State<LoginPage>
         ),
       ),
     );
+  }
+
+  ElevatedButton ElevButton() {
+    return ElevatedButton.icon(
+        style: ElevatedButton.styleFrom(
+            foregroundColor: cLight, backgroundColor: cBlue),
+        onPressed: () {
+          Ksignin();
+        },
+        icon: Icon(CupertinoIcons.goforward, color: cLight),
+        label: Text("Login"));
   }
 
   Widget component1(IconData icon, String hintText, bool isPassword,

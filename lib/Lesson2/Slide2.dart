@@ -26,7 +26,9 @@ class Slide2 extends StatelessWidget {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          SlideImage(image:"assets/Slides/Slide2.Png"),
+            SlideImage(image: "assets/Slides/2/Slide3.PNG"),
+
+
           const SizedBox(height: 20),
           const SizedBox(height: 20),
         ],
@@ -34,4 +36,3 @@ class Slide2 extends StatelessWidget {
     );
   }
 }
-

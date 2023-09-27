@@ -11,7 +11,8 @@ class Slide1 extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            SlideImage(image: "assets/Slides/Slide4.Png"),
+                      SlideImage(image: "assets/Slides/2/Slide2.PNG"),
+
           ],
         ),
       

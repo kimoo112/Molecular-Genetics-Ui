@@ -1,4 +1,3 @@
-
 import 'package:education_app/screens/Details/prepared.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -13,8 +12,6 @@ import 'details_screen2.dart';
 import 'details_screen3.dart';
 import 'details_screen4.dart';
 import 'goals.dart';
-
-
 
 class CourseScreen extends StatefulWidget {
   const CourseScreen({Key? key}) : super(key: key);
@@ -36,38 +33,40 @@ class _CourseScreenState extends State<CourseScreen> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                 Row(
-                           children: [
-                             SizedBox(
-                               width: 40,
-                               height: 40,
-                               child: MaterialButton(
-                  padding: const EdgeInsets.all(0),
-                  color: Colors.white,
-                  shape: const CircleBorder(),
-                  child: Icon(
-                    Icons.arrow_back,
-                    color: Colors.black,
-                  ),
-                  onPressed: () {
-                    Navigator.pop(context);
-                  },
-                               ),
-                             ),
-                           ],
-                         ),
+                Row(
+                  children: [
+                    SizedBox(
+                      width: 40,
+                      height: 40,
+                      child: MaterialButton(
+                        padding: const EdgeInsets.all(0),
+                        color: Colors.white,
+                        shape: const CircleBorder(),
+                        child: Icon(
+                          Icons.arrow_back,
+                          color: Colors.black,
+                        ),
+                        onPressed: () {
+                          Navigator.pop(context);
+                        },
+                      ),
+                    ),
+                  ],
+                ),
                 IntrinsicHeight(
                   child: Stack(
                     children: [
                       Align(
-                        child: Text(
-                          'الـــدروس',
-                          style:TextStyle(fontFamily: "Cairo",fontSize: 30,fontWeight: FontWeight.bold,color: Colors.black) 
-                          // Theme.of(context).textTheme.displayMedium,
-                          
-                        ),
+                        child: Text('الـــدروس',
+                            style: TextStyle(
+                                fontFamily: "Cairo",
+                                fontSize: 30,
+                                fontWeight: FontWeight.bold,
+                                color: Colors.black)
+                            // Theme.of(context).textTheme.displayMedium,
+
+                            ),
                       ),
-                      
                     ],
                   ),
                 ),
@@ -113,62 +112,44 @@ class CourseContainer extends StatelessWidget {
       onTap: () {
         if (course.name == "الدرس الأول ") {
           Navigator.push(
-              context,
-              MaterialPageRoute(
-                  builder: (_) => DetailsScreen(
-                       
-                      )));
+              context, MaterialPageRoute(builder: (_) => DetailsScreen()));
         } else if (course.name == "الدرس الثاني ") {
           Navigator.push(
               context,
               MaterialPageRoute(
                   builder: (_) => DetailsScreen2(
-                        // title: 'course.name',
+                      // title: 'course.name',
                       )));
         } else if (course.name == " الـأهــداف") {
           Navigator.push(
               context,
               MaterialPageRoute(
                   builder: (_) => GoalsScreen(
-                        // title: 'course.name',
+                      // title: 'course.name',
                       )));
-        }else if (course.name == " أعــداد / إشــراف") {
+        } else if (course.name == " أعــداد") {
           Navigator.push(
               context,
               MaterialPageRoute(
                   builder: (_) => PreparedScreen(
-                        // title: 'course.name',
+                      // title: 'course.name',
                       )));
         } else if (course.name == "الدرس الثالث ") {
           Navigator.push(
               context,
               MaterialPageRoute(
                   builder: (_) => DetailsScreen3(
-                        // title: 'course.name',
+                      // title: 'course.name',
                       )));
         } else if (course.name == "الدرس الرابع") {
           Navigator.push(
-              context,
-              MaterialPageRoute(
-                  builder: (_) => DetailsScreen4(
-                        
-                      )));
+              context, MaterialPageRoute(builder: (_) => DetailsScreen4()));
         } else if (course.name == "التقويم البعدي") {
           Navigator.push(
-              context,
-              MaterialPageRoute(
-                  builder: (_) => QuizScreen(
-                        
-                      )));
-        }
-        else if (course.name == " التقويم القبلي") {
+              context, MaterialPageRoute(builder: (_) => QuizScreen()));
+        } else if (course.name == " التقويم القبلي") {
           Navigator.push(
-              context,
-              MaterialPageRoute(
-                  builder: (_) => QuizScreen2(
-                        
-                      )));
-                      
+              context, MaterialPageRoute(builder: (_) => QuizScreen2()));
         }
       },
       child: Container(
@@ -194,21 +175,24 @@ class CourseContainer extends StatelessWidget {
             Expanded(
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.end,
-
                 children: [
-                  Text(course.name
-                  ,style: TextStyle(fontSize: 15,fontFamily: "Cairo", color: Colors.black),),
+                  Text(
+                    course.name,
+                    style: TextStyle(
+                        fontSize: 15, fontFamily: "Cairo", color: Colors.black),
+                  ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.start,
-                    
-                  
                     children: [
                       Text(
-                  
                         "${course.author}",
-                        style: TextStyle(overflow: TextOverflow.fade,fontSize: 13.sp, fontFamily: "Poppins",color: Color(0xFF242323),fontWeight: FontWeight.w300),
+                        style: TextStyle(
+                            overflow: TextOverflow.fade,
+                            fontSize: 12.sp,
+                            fontFamily: "Poppins",
+                            color: Color(0xFF242323),
+                            fontWeight: FontWeight.w300),
                         textAlign: TextAlign.end,
-                        
                       ),
                     ],
                   ),

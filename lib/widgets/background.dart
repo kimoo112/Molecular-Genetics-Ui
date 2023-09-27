@@ -71,15 +71,16 @@ class AnimatingBg2 extends StatefulWidget {
 class _AnimatingBg2State extends State<AnimatingBg2>
     with TickerProviderStateMixin {
   List<Color> colorList = [
-    Color.fromARGB(255, 1, 9, 54),
-    Color.fromARGB(255, 117, 13, 117),
-    Color.fromARGB(255, 64, 3, 44),
-    Color.fromARGB(255, 59, 3, 64),
-    Color.fromARGB(255, 7, 3, 64),
+    Color(0xF5EAD53),
+    Color(0xFF03536E),
+    Color(0xFF020257),
+    Color(0xFF55036E),
+    Color(0xFFAD9C9C),
+   
   ];
   List<Alignment> alignmentList = [Alignment.topCenter, Alignment.bottomCenter];
   int index = 0;
-  Color bottomColor = Color(0xff092646);
+  Color bottomColor = Color(0xff03696E);
   Color topColor = Color(0xff410D75);
   Alignment begin = Alignment.bottomCenter;
   Alignment end = Alignment.topCenter;

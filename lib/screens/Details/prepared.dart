@@ -1,6 +1,10 @@
 // ignore_for_file: must_be_immutable
 
+import 'package:education_app/constants/color.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:ionicons/ionicons.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class PreparedScreen extends StatelessWidget {
   var d = Container(
@@ -15,111 +19,115 @@ class PreparedScreen extends StatelessWidget {
     ),
   );
   PreparedScreen({super.key});
+
+  void contactMeOnWhatsApp() async {
+    final phoneNumber = '+201275619451'; // Replace with your phone number
+    final message = Uri.encodeComponent(
+        'Hello Karim, I Want To Talk With You!'); // Replace with your predefined message
+
+    final whatsappUrl = 'https://wa.me/+201275619451?text=Hello Karim, I Want To Talk With You!';
+
+    if (await canLaunch(whatsappUrl)) {
+      await launch(whatsappUrl);
+    } else {
+      throw 'Could not launch WhatsApp';
+    }
+  }
+
+  void MyGithub() async {
+    final githubUrl = 'https://github.com/kimoo112';
+
+    if (await canLaunch(githubUrl)) {
+      await launch(githubUrl);
+    } else {
+      throw 'Could not launch Github';
+    }
+  }
+
+  void MyFacebook() async {
+    final facebookUrl = 'https://www.facebook.com/KaRiM.MoHaMeD.551/';
+
+    if (await canLaunch(facebookUrl)) {
+      await launch(facebookUrl);
+    } else {
+      throw 'Could not launch Facebook';
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color.fromARGB(255, 0, 11, 31),
-      appBar:AppBar(
-        elevation: 20,
-          backgroundColor: Color.fromARGB(255, 0, 50, 85),
-        title: Text(
-          "الإعـداد / الإشـراف",
-          style: TextStyle(
-            color: Colors. white,
-
-              fontFamily: "Cairo", fontSize: 25, fontWeight: FontWeight.w400),
-          textDirection: TextDirection.rtl,
-          textAlign: TextAlign.start,
+        extendBodyBehindAppBar: true,
+        backgroundColor: Color.fromARGB(255, 0, 11, 31),
+        appBar: AppBar(
+          backgroundColor: cTransperet,
+          title: Text(
+            "اعداد",
+            style: TextStyle(
+                color: Colors.white,
+                fontFamily: "Almarai",
+                fontSize: 30.sp,
+                fontWeight: FontWeight.w400),
+            textDirection: TextDirection.rtl,
+            textAlign: TextAlign.start,
+          ),
+          centerTitle: true,
         ),
-        centerTitle: true,
-      ),
-      body: DefaultTextStyle(
-        style: TextStyle(
-            fontSize: 10,
-            fontWeight: FontWeight.bold,
-            color: Color.fromARGB(255, 255, 255, 255),
-            fontFamily: "Cairo"),
-        child: Padding(
-          padding: const EdgeInsets.all(8.0),
+        body: Container(
+          width: double.infinity,
           child: Column(
-            crossAxisAlignment: CrossAxisAlignment.end,
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.center,
             children: [
+              Text(
+                "Karim Mohamed",
+                style: TextStyle(fontFamily: "poppins", fontSize: 25.sp),
+              ),
+              SizedBox(
+                height: 50,
+              ),
               Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  ClipRRect(
-                      borderRadius: BorderRadius.circular(10), child: Image.asset("assets/icons/UNI.jpeg",width: 100,),),
+                  IconButton(
+                      onPressed: () {
+                        MyGithub();
+                      },
+                      icon: Icon(
+                        Ionicons.logo_github,
+                        size: 33.sp,
+                        color: cLightBlue,
+                      )),
                   SizedBox(
-                    width: 10,
+                    width: 10.w,
                   ),
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.end,
-                    children: [
-                      Text(
-                        'المملـكة العربية السعـودية',
-                        textDirection: TextDirection.rtl,
-                      ),
-                      Text('وزارة التعليم'),
-                      Text('جامعة أم القرى'),
-                      Text('كلية التربية'),
-                      Text('قسم المناهج وطرق التدريس'),
-                    ],
+                  IconButton(
+                      onPressed: () {
+                        contactMeOnWhatsApp();
+                      },
+                      icon: Icon(
+                        Ionicons.logo_whatsapp,
+                        size: 33.sp,
+                                             color: cLightBlue,
+
+                      )),
+                  SizedBox(
+                    width: 10.w,
                   ),
+                  IconButton(
+                      onPressed: () {
+                        MyFacebook();
+                      },
+                      icon: Icon(
+                        Ionicons.logo_facebook,
+                        size: 33.sp,
+                                              color: cLightBlue,
+
+                      )),
                 ],
               ),
-              SizedBox(
-                height: 10,
-              ),
-              d,
-              SizedBox(
-                height: 20,
-              ),
-              Align(
-                  alignment: Alignment.center,
-                  child: Text(
-                    'فاعلية التكرارات المتباعدة ببيئة تعلم ذكية في تنمية التحصيل وحفض التلكؤ الأكاديمي لدى طالبات المرحلة الثانوية',
-                    style: TextStyle(fontWeight: FontWeight.w500, fontSize: 15),
-                    textDirection: TextDirection.rtl,
-                  )),
-              SizedBox(
-                height: 30,
-              ),
-              Align(
-                  alignment: Alignment.center,
-                  child: Text(
-                    'إعداد  / الجوهرة محمد منصور المحمادي',
-                    style: TextStyle(fontWeight: FontWeight.w500, fontSize: 15),
-                    textDirection: TextDirection.rtl,
-                  )),
-              SizedBox(
-                height: 20,
-              ),
-              Align(
-                  alignment: Alignment.center,
-                  child: Text(
-                    "إشراف  / د .  هنادي محمد مكي بخاري",
-                    style: TextStyle(fontWeight: FontWeight.w500, fontSize: 15),
-                    textDirection: TextDirection.rtl,
-                  )),
-              Align(
-                  alignment: Alignment.center,
-                  child: Text(
-                    "أستاذ مساعد تقنيات التعليم كلية التربية جامعة أم القرى",
-                    style: TextStyle(fontWeight: FontWeight.w500, fontSize: 15),
-                    textDirection: TextDirection.rtl,
-                  )),
-              SizedBox(
-                height: 40,
-              ),
-              Align(
-                alignment: Alignment.center,
-                child: Container(
-                    width: 150, child: Image.asset("assets/icons/resbect.png")),
-              )
             ],
           ),
-        ),
-      ),
-    );
+        ));
   }
 }

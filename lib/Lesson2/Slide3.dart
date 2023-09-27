@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 
+import '../constants/color.dart';
+import '../widgets/slideImage.dart';
+
 class Slide3 extends StatelessWidget {
   const Slide3({
     super.key,
@@ -8,10 +11,12 @@ class Slide3 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: Colors.green,
-      child: Center(child: Text('Slide 3')),
+      color: cNavy,
+      child: Center(child: 
+                             SlideImage(image: "assets/Slides/2/Slide4.PNG"),
+
+
+      ),
     );
   }
 }
-
-

@@ -47,7 +47,7 @@ Widget mainCardWidget(BuildContext context) {
   return ListView(
     physics: BouncingScrollPhysics(parent: AlwaysScrollableScrollPhysics()),
     children: [
-      cardWithInfoPage('assets/icons/dnaa.jpg', 'أهداف الدرس الأول ', context),
+      cardWithInfoPage('assets/icons/lesson2.jpg', 'أهداف الدرس الأول ', context),
       cardWithInfoPage(
           'assets/icons/Enzymes .jpg', 'أهداف الدرس الثاني ', context),
       cardWithInfoPage('assets/icons/RNAA.jpg', 'أهداف الدرس الثالث ', context),

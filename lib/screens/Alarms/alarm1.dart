@@ -1,10 +1,11 @@
 // ignore_for_file: unused_local_variable
 
-import 'package:awesome_notifications/awesome_notifications.dart';
+// import 'package:awesome_notifications/awesome_notifications.dart';
 import 'package:flutter/material.dart';
 import 'package:uuid/uuid.dart';
 import '../../widgets/background.dart';
 import '../Notify/noti.dart';
+import '../Notify/notification.dart';
 
 DateTime scheduleTime = DateTime.now();
 
@@ -32,43 +33,51 @@ class _Alarmscreen1State extends State<Alarmscreen1> {
           Center(
             child:
                 Column(mainAxisAlignment: MainAxisAlignment.center, children: [
+              // ElevatedButton(
+              //     onPressed: () {
+              //       AwesomeNotifications()
+              //           .requestPermissionToSendNotifications();
+              //     },
+              //     child: Text("request permisson")),
+              // const SizedBox(height: 22),
+              // ElevatedButton(
+              //     onPressed: () {
+              //       setState(() {
+              //         int id = Uuid().v4().hashCode;
+              //         AwesomeNotifications().createNotification(
+              //           content: NotificationContent(
+              //               id: id,
+              //               channelKey: "karim",
+              //               bigPicture: "assets/icons/anim.jpg",
+              //               notificationLayout: NotificationLayout.BigPicture,
+              //               title: "Hello",
+              //               body:
+              //                   "The sun slowly set over the horizon, streaks of pink."),
+              //         );
+              //         print("$id");
+              //       });
+              //     },
+              //     child: Text("data")),
+              // const SizedBox(height: 22),
+              // ElevatedButton(
+              //     onPressed: () {
+              //       AwesomeNotifications().createNotification(
+              //           content: NotificationContent(
+              //               id: 10,
+              //               channelKey: 'Karim_Channel',
+              //               title: 'Simple Notification',
+              //               body: 'Simple body',
+              //               actionType: ActionType.Default));
+              //     },
+              //     child: Text("Basic Push")),
               ElevatedButton(
-                  onPressed: () {
-                    AwesomeNotifications()
-                        .requestPermissionToSendNotifications();
-                  },
-                  child: Text("request permisson")),
-              const SizedBox(height: 22),
-              ElevatedButton(
-                  onPressed: () {
-                    setState(() {
-                      int id = Uuid().v4().hashCode;
-                      AwesomeNotifications().createNotification(
-                        content: NotificationContent(
-                            id: id,
-                            channelKey: "karim",
-                            bigPicture: "assets/icons/anim.jpg",
-                            notificationLayout: NotificationLayout.BigPicture,
-                            title: "Hello",
-                            body:
-                                "The sun slowly set over the horizon, streaks of pink."),
-                      );
-                      print("$id");
-                    });
-                  },
-                  child: Text("data")),
-              const SizedBox(height: 22),
-              ElevatedButton(
-                  onPressed: () {
-                    AwesomeNotifications().createNotification(
-                        content: NotificationContent(
-                            id: 10,
-                            channelKey: 'Karim_Channel',
-                            title: 'Simple Notification',
-                            body: 'Simple body',
-                            actionType: ActionType.Default));
-                  },
-                  child: Text("Basic Push"))
+                onPressed: () {
+              
+                },
+                child: Text(
+                  "Elevated Button",
+                ),
+              ),
             ]),
           ),
         ],

@@ -15,21 +15,23 @@ List<Category> categoryList = [
   Category(
     name: 'الدرس الثاني',
     lessonName: "تضاعف DNA",
-    thumbnail: 'assets/icons/lesson22.jfif',
+    thumbnail: 'assets/Slides/2/Slide1.PNG',
   ),
   Category(
     name: 'الدرس الأول',
     lessonName: "المادة الوراثية: DNA",
-    thumbnail: 'assets/icons/lesson1.jpg',
+    thumbnail: 'assets/Slides/1/Slide1.PNG',
   ),
   Category(
     name: 'الدرس الرابع',
     lessonName: "التنظيم الجيني والطفرة",
-    thumbnail: 'assets/icons/lesson4.jpg',
+       thumbnail: 'assets/Slides/4/Slide1.PNG',
+
   ),
   Category(
     name: 'الدرس الثالث',
     lessonName: "DNA ، RNA ، Protein",
-    thumbnail: 'assets/icons/lesson3.jpg',
+       thumbnail: 'assets/Slides/3/Slide1.PNG',
+
   ),
 ];

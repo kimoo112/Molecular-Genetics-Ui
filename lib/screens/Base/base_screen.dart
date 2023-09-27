@@ -1,23 +1,28 @@
+// ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
 import 'package:salomon_bottom_bar/salomon_bottom_bar.dart';
-
 import '../Alarms/alarmScreen.dart';
-import '../featuerd_screen.dart';
+import '../Featured/featuerd_screen.dart';
 
 DateTime scheduleTime = DateTime.now();
 
 class BaseScreen extends StatefulWidget {
   final String namee;
-  const BaseScreen({Key? key, required this.namee}) : super(key: key);
+  final int indx;
+  BaseScreen({
+    Key? key,
+    required this.namee,
+    this.indx = 0,
+  }) : super(key: key);
 
   @override
   _BaseScreenState createState() => _BaseScreenState();
 }
 
 class _BaseScreenState extends State<BaseScreen> {
-  int _selectedIndex = 0;
+  late int _selectedIndex = widget.indx;
   List<Widget> _widgetOptions = [];
-   @override
+  @override
   void initState() {
     super.initState();
     _widgetOptions = [
@@ -27,6 +32,7 @@ class _BaseScreenState extends State<BaseScreen> {
       AlarmScreen(),
     ];
   }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(

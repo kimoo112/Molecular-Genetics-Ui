@@ -1,14 +1,17 @@
-// ignore_for_file: public_member_api_docs, sort_constructors_first, unused_import, must_be_immutable, unused_label
+// ignore_for_file: public_member_api_docs, sort_constructors_first, unused_import, must_be_immutable, unused_label, unused_local_variable, deprecated_member_use
+import 'package:education_app/Lesson2/Slide6.dart';
 import 'package:education_app/Lesson2/videoSlide.dart';
 import 'package:education_app/constants/color.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:insta_image_viewer/insta_image_viewer.dart';
+import 'package:liquid_swipe/liquid_swipe.dart';
 import 'package:url_launcher/url_launcher.dart';
 import '../../Lesson2/Slide1.dart';
 import '../../Lesson2/Slide2.dart';
 import '../../Lesson2/Slide3.dart';
 import '../../Lesson2/Slide4.dart';
+import '../../Lesson2/Slide5.dart';
 import '../../Lesson2/goals.dart';
 import '../../widgets/image_network.dart';
 
@@ -31,8 +34,9 @@ class LessonScreen2 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      extendBodyBehindAppBar: true,
       appBar: AppBar(
-        backgroundColor: cDark,
+        backgroundColor: cTransperet,
         title: Text(
           'LESSON 2',
           style: TextStyle(color: Colors.white, fontFamily: "Poppins"),
@@ -45,7 +49,7 @@ class LessonScreen2 extends StatelessWidget {
               enableFeedback:
               true;
 
-              URL('https://www.youtube.com/watch?v=6qGbbWDfyak');
+              URL('https://drive.google.com/file/d/1ClNm9eTqx_VItEP-pTCzlPq_EL-t1M58/view');
             },
             icon: const Icon(CupertinoIcons.play_circle),
           ),
@@ -84,12 +88,14 @@ class _SlidePageState extends State<SlidePage> {
     color: Colors.white,
   );
   final List<Widget> slides = [
-    VideoSlide(),
     GoalsSlide(),
+    VideoSlide(),
     Slide1(),
     Slide2(),
     Slide3(),
     Slide4(),
+    Slide5(),
+    Slide6(),
   ];
 
   late PageController pageController;
@@ -98,10 +104,12 @@ class _SlidePageState extends State<SlidePage> {
   void initState() {
     super.initState();
     pageController = PageController(initialPage: widget.kimo);
+    LiquidController controller = LiquidController();
   }
 
   @override
   void dispose() {
+    LiquidController controller = LiquidController();
     pageController.dispose();
     super.dispose();
   }
@@ -110,6 +118,12 @@ class _SlidePageState extends State<SlidePage> {
   Widget build(BuildContext context) {
     return Column(
       children: <Widget>[
+        // LiquidSwipe(
+        //   pages: slides,
+        //   initialPage: widget.kimo ,
+        //   liquidController: LiquidController(),
+        //   slideIconWidget: Icon(CupertinoIcons.airplane),
+        //   enableLoop: false,
         Expanded(
           child: PageView(
             controller: pageController,
@@ -117,8 +131,7 @@ class _SlidePageState extends State<SlidePage> {
           ),
         ),
         Container(
-                      
-              color: Color.fromARGB(255, 0, 0, 0),
+          color: Color.fromARGB(255, 0, 0, 0),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: <Widget>[
@@ -127,7 +140,7 @@ class _SlidePageState extends State<SlidePage> {
                   child: Text(
                     'السابق',
                     style: const TextStyle(
-                      color: cLight,   fontSize: 18, fontFamily: "Cairo"),
+                        color: cLight, fontSize: 18, fontFamily: "Cairo"),
                   ),
                   onPressed: () {
                     pageController.previousPage(
@@ -148,7 +161,7 @@ class _SlidePageState extends State<SlidePage> {
                 child: Text(
                   'الصفحه الرئيسيه',
                   style: const TextStyle(
-                    color: cLight,   fontSize: 18, fontFamily: "Cairo"),
+                      color: cLight, fontSize: 18, fontFamily: "Cairo"),
                 ),
               ),
               TextButton(
@@ -161,10 +174,9 @@ class _SlidePageState extends State<SlidePage> {
                 child: Text(
                   'التالي',
                   style: const TextStyle(
-                     color: cLight,  fontSize: 18, fontFamily: "Cairo"),
+                      color: cLight, fontSize: 18, fontFamily: "Cairo"),
                 ),
               ),
-              
             ],
           ),
         ),

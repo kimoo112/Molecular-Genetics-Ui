@@ -16,7 +16,7 @@ List<Course> courses = [
   Course(
     author: "Prepared",
     completedPercentage: 1,
-    name: " أعــداد / إشــراف",
+    name: " أعــداد",
     thumbnail: "assets/icons/prepared.jpg",
   ),
   Course(

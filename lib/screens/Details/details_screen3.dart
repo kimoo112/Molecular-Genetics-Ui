@@ -1,7 +1,10 @@
-import 'package:flutter/cupertino.dart';
+import 'package:education_app/screens/Details/goals.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_staggered_animations/flutter_staggered_animations.dart';
+import '../../constants/color.dart';
+import '../../constants/size.dart';
 import '../../widgets/background.dart';
 import '../Alarms/alarm3.dart';
 import '../Lessons/lessonScreen3.dart';
@@ -15,32 +18,32 @@ class _DetailsScreen3State extends State<DetailsScreen3> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      extendBodyBehindAppBar: true,
       backgroundColor: Color(0xffF8F9FB),
-      appBar:AppBar(
-        elevation: 20,
-          backgroundColor: Color.fromARGB(255, 0, 50, 85),
+      appBar: AppBar(
+        backgroundColor: Colors.transparent,
+        elevation: 0,
+        scrolledUnderElevation: 3,
+        shadowColor: cDark.withOpacity(.8),
         title: Text(
           'DNA , RNA , Protein ',
           textScaleFactor: 1.12,
           style: TextStyle(
               color: Colors.white.withOpacity(.9),
               fontWeight: FontWeight.w600,
-              fontSize: 22,
-              fontFamily: "Cairo"),
+              fontSize: 18.sp,
+              fontFamily: "Poppins"),
           textAlign: TextAlign.start,
           textDirection: TextDirection.rtl,
         ),
         centerTitle: true,
-
         actions: [
           IconButton(
-            color: Colors.black.withOpacity(.7),
-            tooltip: ' الـتـكـرار',
             enableFeedback: true,
             icon: Icon(
               Icons.alarm_add,
               size: 30,
-              color: Colors.white.withOpacity(.7),
+              color: Colors.white.withOpacity(.9),
             ),
             onPressed: () {
               HapticFeedback.lightImpact();
@@ -52,7 +55,7 @@ class _DetailsScreen3State extends State<DetailsScreen3> {
       ),
       body: Stack(
         children: [
-          AnimatingBg3(),
+          AnimatingBg2(),
           mainCardWidget(context),
         ],
       ),
@@ -66,22 +69,42 @@ Widget mainCardWidget(BuildContext context) {
   return ListView(
     physics: BouncingScrollPhysics(parent: AlwaysScrollableScrollPhysics()),
     children: [
+      cardWithInfoPage('assets/icons/R.jfif', 'الأهداف', context),
+      cardWithInfoPage('assets/icons/youtube.jfif', 'شرح فيديو', context),
       cardWithInfoPage(
         'assets/icons/bold 1 ls 2.jpg',
         'المبدأ الأساسي',
         context,
       ),
       cardWithInfoPage('assets/icons/bold 2 ls 2.jfif', 'جزيء RNA', context),
+      cardWithInfoPage('assets/icons/bold 2 ls 2.jfif', ' 2 RNA ', context),
       cardWithInfoPage('assets/icons/bold 3 ls 2.jfif', 'عملية النسخ', context),
-      cardWithInfoPage('assets/icons/bold 4 ls 2.jpg', 'معالجة RNA', context),
+      cardWithInfoPage(
+          'assets/icons/bold 3 ls 2.jfif', 'عملية النسخ 2 ', context),
+      cardWithInfoPage('assets/icons/Rna.png', 'معالجة RNA', context),
+      cardWithInfoPage('assets/icons/Rna.png', ' معالجة 2', context),
       cardWithInfoPage('assets/icons/bold 5 ls 2.jfif', 'الشفرة', context),
+      cardWithInfoPage('assets/icons/bold 5 ls 2.jfif', 'الشفرة 2', context),
+      cardWithInfoPage('assets/icons/bold 5 ls 2.jfif', 'الشفرة 3', context),
+      cardWithInfoPage('assets/icons/bold 5 ls 2.jfif', 'الشفرة 4', context),
       cardWithInfoPage('assets/icons/bold 6 ls 2.webp', 'الترجمة', context),
-      cardWithInfoPage('assets/icons/riposm.jpg', 'دور الرايبوسوم', context),
-      cardWithInfoPage('assets/icons/riposm.jpg', 'الرايبوسوم 2', context),
+      cardWithInfoPage('assets/icons/bold 6 ls 2.webp', 'الترجمة 2', context),
+      cardWithInfoPage('assets/icons/ribosomee.png', 'دور الرايبوسوم', context),
+      cardWithInfoPage('assets/icons/ribosomee.png', 'الرايبوسوم 2', context),
+      cardWithInfoPage('assets/icons/ribosomee.png', 'الرايبوسوم 3', context),
       SizedBox(
         height: MediaQuery.of(context).size.width / 7,
       ),
     ],
+  );
+}
+
+void navigateToLessonScreen(BuildContext context, int currentPageIdx) {
+  Navigator.push(
+    context,
+    MaterialPageRoute(
+      builder: (context) => LessonScreen3(currentPageIdx: currentPageIdx),
+    ),
   );
 }
 
@@ -97,7 +120,7 @@ Widget cardWithInfoPage(image, String name, BuildContext context) {
 Widget cardWidget(
     BuildContext context, Widget route, String name, String image) {
   double _w = MediaQuery.of(context).size.width;
-  double _f = MediaQuery.of(context).textScaleFactor;
+  // double _f = MediaQuery.of(context).textScaleFactor;
 
   return InkWell(
       enableFeedback: true,
@@ -105,173 +128,114 @@ Widget cardWidget(
       highlightColor: Colors.transparent,
       onTap: () {
         HapticFeedback.lightImpact();
-        if (name == 'المبدأ الأساسي') {
-          Navigator.push(
-            context,
-            MaterialPageRoute(
-              builder: (context) => LessonScreen3(
-                currentPageIdx: 0,
-              ),
-            ),
-          );
+        if (name == 'شرح فيديو') {
+          navigateToLessonScreen(context, 1);
+        } else if (name == 'الأهداف') {
+          navigateToLessonScreen(context, 0);
+        } else if (name == 'المبدأ الأساسي') {
+          navigateToLessonScreen(context, 2);
         } else if (name == 'جزيء RNA') {
-          Navigator.push(
-            context,
-            MaterialPageRoute(
-                builder: (context) => LessonScreen3(
-                      currentPageIdx: 1,
-                    )),
-          );
+          navigateToLessonScreen(context, 3);
+        } else if (name == ' 2 RNA ') {
+          navigateToLessonScreen(context, 4);
         } else if (name == 'عملية النسخ') {
-          Navigator.push(
-            context,
-            MaterialPageRoute(
-                builder: (context) => LessonScreen3(
-                      currentPageIdx: 2,
-                    )),
-          );
+          navigateToLessonScreen(context, 5);
+        } else if (name == 'عملية النسخ 2 ') {
+          navigateToLessonScreen(context, 6);
         } else if (name == 'معالجة RNA') {
-          Navigator.push(
-            context,
-            MaterialPageRoute(
-                builder: (context) => LessonScreen3(
-                      currentPageIdx: 3,
-                    )),
-          );
+          navigateToLessonScreen(context, 7);
+        } else if (name == ' معالجة 2') {
+          navigateToLessonScreen(context, 8);
         } else if (name == 'الشفرة') {
-          Navigator.push(
-            context,
-            MaterialPageRoute(
-                builder: (context) => LessonScreen3(
-                      currentPageIdx: 4,
-                    )),
-          );
+          navigateToLessonScreen(context, 9);
+        } else if (name == 'الشفرة 2') {
+          navigateToLessonScreen(context, 10);
+        } else if (name == 'الشفرة 3') {
+          navigateToLessonScreen(context, 11);
+        } else if (name == 'الشفرة 4') {
+          navigateToLessonScreen(context, 12);
         } else if (name == 'الترجمة') {
-          Navigator.push(
-            context,
-            MaterialPageRoute(
-                builder: (context) => LessonScreen3(
-                      currentPageIdx: 5,
-                    )),
-          );
+          navigateToLessonScreen(context, 13);
+        } else if (name == 'الترجمة 2') {
+          navigateToLessonScreen(context, 14);
+        } else if (name == 'دور الرايبوسوم') {
+          navigateToLessonScreen(context, 15);
         } else if (name == 'الرايبوسوم 2') {
-          Navigator.push(
-            context,
-            MaterialPageRoute(
-                builder: (context) => LessonScreen3(
-                      currentPageIdx: 7,
-                    )),
-          );
-        } else {
-          Navigator.push(
-            context,
-            MaterialPageRoute(
-                builder: (context) => LessonScreen3(
-                      currentPageIdx: 6,
-                    )),
-          );
+          navigateToLessonScreen(context, 16);
+        } else if (name == 'الرايبوسوم 3') {
+          navigateToLessonScreen(context, 17);
         }
       },
-      child: Container(
-          decoration: BoxDecoration(
-            color: Color.fromARGB(255, 3, 18, 53),
-            boxShadow: [
-              BoxShadow(color: Colors.black.withOpacity(.04), blurRadius: 30),
-            ],
-            borderRadius: BorderRadius.circular(10),
-          ),
-          margin: EdgeInsets.fromLTRB(_w / 20, _w / 20, _w / 20, 0),
-          height: _w / 5,
-          padding: EdgeInsets.all(_w / 25),
-          child: Center(
-            child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Container(
-                    height: _w / 5.5,
-                    width: _w / 3.3,
-                    decoration: BoxDecoration(
-                      border: Border.all(color: Colors.white, width: 0),
-                      color: Colors.black.withOpacity(.2),
-                      borderRadius: BorderRadius.circular(5),
-                      boxShadow: [
-                        BoxShadow(
-                            color: Colors.black.withOpacity(.1),
-                            blurRadius: 30),
-                      ],
-                      image: DecorationImage(
-                        image: AssetImage(image),
-                        fit: BoxFit.cover,
+      child: Padding(
+        padding: EdgeInsets.fromLTRB(15, 8, 15, 8),
+        child: AnimationConfiguration.staggeredList(
+          position: 3,
+          delay: Duration(milliseconds: 100),
+          child: SlideAnimation(
+            duration: Duration(milliseconds: 2500),
+            curve: Curves.bounceOut,
+            verticalOffset: -250,
+            child: ScaleAnimation(
+              duration: Duration(milliseconds: 1500),
+              curve: Curves.fastLinearToSlowEaseIn,
+              child: Container(
+                margin: EdgeInsets.only(bottom: _w / 20),
+                height: _w / 4,
+                decoration: BoxDecoration(
+                  color: Color(0xFF031235).withOpacity(.93),
+                  borderRadius: BorderRadius.all(Radius.circular(20)),
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.black.withOpacity(0.2),
+                      blurRadius: 11,
+                      spreadRadius: 5,
+                    ),
+                  ],
+                ),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: <Widget>[
+                    Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Container(
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.all(Radius.circular(20)),
+                          boxShadow: [
+                            BoxShadow(
+                              color: Colors.white.withOpacity(0.3),
+                              blurRadius: 3,
+                              spreadRadius: 1,
+                            ),
+                          ],
+                        ),
+                        child: ClipRRect(
+                          borderRadius: BorderRadius.all(Radius.circular(20)),
+                          child: Image.asset(
+                            image,
+                            width: 100.w,
+                            fit: BoxFit.fill,
+                            height: 100.h,
+                          ),
+                        ),
                       ),
                     ),
-                  ),
-                  Container(
-                      width: _w / 2.0,
-                      // color: Colors.black,
-                      child: Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          crossAxisAlignment: CrossAxisAlignment.end,
-                          children: [
-                            Align(
-                              alignment: Alignment.center,
-                              child: Text(
-                                name,
-                                overflow: TextOverflow.ellipsis,
-                                softWrap: true,
-                                maxLines: 1,
-                                style: TextStyle(
-                                  fontSize: _f * 20,
-                                  fontFamily: "Cairo",
-                                  fontWeight: FontWeight.w400,
-                                  color: Colors.white,
-                                ),
-                                textAlign: TextAlign.start,
-                                textDirection: TextDirection.rtl,
-                              ),
-                            ),
-                          ])),
-                ]),
-          )));
-}
-
-Widget infoPage(String name, BuildContext context) {
-  double _f = MediaQuery.of(context).textScaleFactor;
-  return Scaffold(
-    backgroundColor: Color(0xffF8F9FB),
-    appBar: AppBar(
-      leading: IconButton(
-        tooltip: 'Back',
-        icon: Icon(
-          CupertinoIcons.chevron_back,
-          color: Colors.black,
+                    Padding(
+                      padding: EdgeInsets.fromLTRB(0, 0, 10, 0),
+                      child: Text(
+                        name,
+                        style: TextStyle(
+                            color: cLight,
+                            fontFamily: "Cairo",
+                            fontSize: KWidth(context) * .043),
+                        overflow: TextOverflow.ellipsis,
+                        textDirection: TextDirection.rtl,
+                      ),
+                    )
+                  ],
+                ),
+              ),
+            ),
+          ),
         ),
-        onPressed: () {
-          HapticFeedback.lightImpact();
-          Navigator.maybePop(context);
-        },
-      ),
-      shadowColor: Color.fromARGB(255, 22, 4, 4).withOpacity(.4),
-      elevation: 20,
-      backgroundColor: Colors.white,
-      title: Text(
-        name,
-        style: TextStyle(
-          color: Colors.black.withOpacity(.7),
-          fontSize: _f * 22,
-          fontWeight: FontWeight.w600,
-        ),
-      ),
-      actions: [
-        IconButton(
-          color: (Colors.white),
-          tooltip: 'Add Alarm',
-          enableFeedback: true,
-          icon: Icon(Icons.alarm_add),
-          onPressed: () {
-            HapticFeedback.lightImpact();
-          },
-        ),
-      ],
-    ),
-  );
+      ));
 }
