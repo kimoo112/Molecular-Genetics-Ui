@@ -82,49 +82,62 @@ class PreparedScreen extends StatelessWidget {
             children: [
               Spacer(),
               Text(
-                "Karim Mohamed",
-                style: TextStyle(fontFamily: "poppins", fontSize: 25.sp),
+                "اعداد: الجوهره محمد منصور الحمادي ",
+                style: TextStyle(fontFamily: "Cairo", fontSize: 25),
               ),
               SizedBox(
                 height: 50,
               ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  IconButton(
-                      onPressed: () {
-                        MyGithub();
-                      },
-                      icon: Icon(
-                        Ionicons.logo_github,
-                        size: 33.sp,
-                        color: cLightBlue,
-                      )),
-                  SizedBox(
-                    width: 10.w,
-                  ),
-                  IconButton(
-                      onPressed: () {
-                        contactMeOnWhatsApp();
-                      },
-                      icon: Icon(
-                        Ionicons.logo_whatsapp,
-                        size: 33.sp,
-                        color: cLightBlue,
-                      )),
-                  SizedBox(
-                    width: 10.w,
-                  ),
-                  IconButton(
-                      onPressed: () {
-                        MyFacebook();
-                      },
-                      icon: Icon(
-                        Ionicons.logo_facebook,
-                        size: 33.sp,
-                        color: cLightBlue,
-                      )),
-                ],
+              Spacer(),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text(
+                      "Karim Mohamed",
+                      style: TextStyle(fontFamily: "poppins", fontSize: 10.sp),
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        IconButton(
+                            onPressed: () {
+                              MyGithub();
+                            },
+                            icon: Icon(
+                              Ionicons.logo_github,
+                              size: 20.sp,
+                              color: cLightBlue,
+                            )),
+                        SizedBox(
+                          width: 10.w,
+                        ),
+                        IconButton(
+                            onPressed: () {
+                              contactMeOnWhatsApp();
+                            },
+                            icon: Icon(
+                              Ionicons.logo_whatsapp,
+                              size: 20.sp,
+                              color: cLightBlue,
+                            )),
+                        SizedBox(
+                          width: 10.w,
+                        ),
+                        IconButton(
+                            onPressed: () {
+                              MyFacebook();
+                            },
+                            icon: Icon(
+                              Ionicons.logo_facebook,
+                              size: 20.sp,
+                              color: cLightBlue,
+                            )),
+                      ],
+                    ),
+                  ],
+                ),
               ),
             ],
           ),
