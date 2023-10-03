@@ -43,21 +43,7 @@ class _DetailsScreenState extends State<DetailsScreen> {
           textDirection: TextDirection.rtl,
         ),
         centerTitle: true,
-        actions: [
-          IconButton(
-            color: Colors.black.withOpacity(.7),
-            tooltip: ' الـتـكـرار',
-            enableFeedback: true,
-            icon: Icon(
-              Icons.alarm_add,
-              size: 30,
-              color: Colors.white.withOpacity(.7),
-            ),
-            onPressed: () {
-              navigateToP(Alarmscreen1(), context);
-            },
-          ),
-        ],
+        
       ),
       body: Stack(
         children: [

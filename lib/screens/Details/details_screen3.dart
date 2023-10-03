@@ -3,10 +3,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_staggered_animations/flutter_staggered_animations.dart';
+
 import '../../constants/color.dart';
 import '../../constants/size.dart';
 import '../../widgets/background.dart';
-import '../Alarms/alarm3.dart';
 import '../Lessons/lessonScreen3.dart';
 
 class DetailsScreen3 extends StatefulWidget {
@@ -37,21 +37,6 @@ class _DetailsScreen3State extends State<DetailsScreen3> {
           textDirection: TextDirection.rtl,
         ),
         centerTitle: true,
-        actions: [
-          IconButton(
-            enableFeedback: true,
-            icon: Icon(
-              Icons.alarm_add,
-              size: 30,
-              color: Colors.white.withOpacity(.9),
-            ),
-            onPressed: () {
-              HapticFeedback.lightImpact();
-              Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => Alarmscreen3()));
-            },
-          ),
-        ],
       ),
       body: Stack(
         children: [

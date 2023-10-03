@@ -25,7 +25,8 @@ class PreparedScreen extends StatelessWidget {
     final message = Uri.encodeComponent(
         'Hello Karim, I Want To Talk With You!'); // Replace with your predefined message
 
-    final whatsappUrl = 'https://wa.me/+201275619451?text=Hello Karim, I Want To Talk With You!';
+    final whatsappUrl =
+        'https://wa.me/+201275619451?text=Hello Karim, I Want To Talk With You!';
 
     if (await canLaunch(whatsappUrl)) {
       await launch(whatsappUrl);
@@ -79,6 +80,7 @@ class PreparedScreen extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
+              Spacer(),
               Text(
                 "Karim Mohamed",
                 style: TextStyle(fontFamily: "poppins", fontSize: 25.sp),
@@ -108,8 +110,7 @@ class PreparedScreen extends StatelessWidget {
                       icon: Icon(
                         Ionicons.logo_whatsapp,
                         size: 33.sp,
-                                             color: cLightBlue,
-
+                        color: cLightBlue,
                       )),
                   SizedBox(
                     width: 10.w,
@@ -121,8 +122,7 @@ class PreparedScreen extends StatelessWidget {
                       icon: Icon(
                         Ionicons.logo_facebook,
                         size: 33.sp,
-                                              color: cLightBlue,
-
+                        color: cLightBlue,
                       )),
                 ],
               ),

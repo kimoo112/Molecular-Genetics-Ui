@@ -7,14 +7,14 @@ import 'package:education_app/screens/Alarms/alarm1.dart';
 import 'package:education_app/screens/Base/base_screen.dart';
 import 'package:education_app/screens/Splash/splash.dart';
 import 'package:firebase_core/firebase_core.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:shared_preferences/shared_preferences.dart';
-import 'firebase_options.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
+import 'firebase_options.dart';
 import 'screens/Notify/notification.dart';
 
 void main() async {
@@ -69,60 +69,24 @@ class _MyAppState extends State<MyApp> {
         minTextAdapt: true,
         splitScreenMode: true,
         builder: (context, child) {
-          return BlocProvider(
-            create: (context) => AppThemeCubit(),
-            child: BlocBuilder<AppThemeCubit, AppThemeState>(
-              builder: (context, state) {
-                if (state is AppThemeLight) {
-                  return MaterialApp(
-                      debugShowCheckedModeBanner: false,
-                      title: 'Molecular Genetics',
-                      theme: ThemeData(
-                        bottomNavigationBarTheme:
-                            BottomNavigationBarThemeData(),
-                        scaffoldBackgroundColor: Colors.white,
-                        iconButtonTheme: IconButtonThemeData(
-                            style: ButtonStyle(
-                          foregroundColor:
-                              MaterialStateProperty.all(Colors.white),
-                        )),
-                        textTheme: Theme.of(context).textTheme.apply(
-                              fontFamily: 'Cario',
-                              bodyColor: Colors.white,
-                            ),
-                        fontFamily: 'Cario',
-                        useMaterial3: true,
-                      ),
-                      home: SplashScreen()
-                      //  BaseScreen(
-                      //   namee: 'كيمو',
-                      // ),
-                      );
-                } else {}
-                return MaterialApp(
-                    debugShowCheckedModeBanner: false,
-                    title: 'Molecular Genetics',
-                    theme: ThemeData(
-                      iconButtonTheme: IconButtonThemeData(
-                          style: ButtonStyle(
-                        foregroundColor:
-                            MaterialStateProperty.all(Colors.white),
-                      )),
-                      textTheme: Theme.of(context).textTheme.apply(
-                            fontFamily: 'Cario',
-                            bodyColor: Colors.white,
-                          ),
+          return MaterialApp(
+              debugShowCheckedModeBanner: false,
+              title: 'Molecular Genetics',
+              theme: ThemeData(
+                bottomNavigationBarTheme: BottomNavigationBarThemeData(),
+                scaffoldBackgroundColor: Colors.white,
+                iconButtonTheme: IconButtonThemeData(
+                    style: ButtonStyle(
+                  foregroundColor: MaterialStateProperty.all(Colors.white),
+                )),
+                textTheme: Theme.of(context).textTheme.apply(
                       fontFamily: 'Cario',
-                      useMaterial3: true,
+                      bodyColor: Colors.white,
                     ),
-                    home: SplashScreen()
-                    //  BaseScreen(
-                    //   namee: 'كيمو',
-                    // ),
-                    );
-              },
-            ),
-          );
+                fontFamily: 'Cario',
+                useMaterial3: true,
+              ),
+              home: SplashScreen());
         });
   }
 }
