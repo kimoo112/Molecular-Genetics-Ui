@@ -65,7 +65,8 @@ class _SplashScreenState extends State<SplashScreen> {
           ],
         ),
       ),
-      defaultNextScreen: LoginPage(),
+      // defaultNextScreen: LoginPage(),
+      nextScreen: LoginPage(),
     );
   }
 }
