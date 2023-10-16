@@ -17,7 +17,10 @@ import 'package:flutter/foundation.dart'
 class DefaultFirebaseOptions {
   static FirebaseOptions get currentPlatform {
     if (kIsWeb) {
-      return web;
+      throw UnsupportedError(
+        'DefaultFirebaseOptions have not been configured for web - '
+        'you can reconfigure this by running the FlutterFire CLI again.',
+      );
     }
     switch (defaultTargetPlatform) {
       case TargetPlatform.android:
@@ -25,7 +28,10 @@ class DefaultFirebaseOptions {
       case TargetPlatform.iOS:
         return ios;
       case TargetPlatform.macOS:
-        return macos;
+        throw UnsupportedError(
+          'DefaultFirebaseOptions have not been configured for macos - '
+          'you can reconfigure this by running the FlutterFire CLI again.',
+        );
       case TargetPlatform.windows:
         throw UnsupportedError(
           'DefaultFirebaseOptions have not been configured for windows - '
@@ -43,41 +49,22 @@ class DefaultFirebaseOptions {
     }
   }
 
-  static const FirebaseOptions web = FirebaseOptions(
-    apiKey: 'AIzaSyA3dZaZ8wCZC0k-hITc5QeARCXgTrjsfZE',
-    appId: '1:651269676503:web:dc876172bb1a691c353f92',
-    messagingSenderId: '651269676503',
-    projectId: 'massege-c61d0',
-    authDomain: 'massege-c61d0.firebaseapp.com',
-    storageBucket: 'massege-c61d0.appspot.com',
-    measurementId: 'G-0WYCBP8B2B',
-  );
-
   static const FirebaseOptions android = FirebaseOptions(
     apiKey: 'AIzaSyBob3iHoe4fyEZ1Xey-pBP1nkxit2wcL5k',
     appId: '1:651269676503:android:888da935e28b74ad353f92',
     messagingSenderId: '651269676503',
     projectId: 'massege-c61d0',
+    databaseURL: 'https://massege-c61d0-default-rtdb.firebaseio.com',
     storageBucket: 'massege-c61d0.appspot.com',
   );
 
   static const FirebaseOptions ios = FirebaseOptions(
     apiKey: 'AIzaSyC8z-7E9zztyweNleSLQSvu6BE9WFgMlyk',
-    appId: '1:651269676503:ios:06674bc726d60411353f92',
+    appId: '1:651269676503:ios:1e4c835d8ff5ee44353f92',
     messagingSenderId: '651269676503',
     projectId: 'massege-c61d0',
+    databaseURL: 'https://massege-c61d0-default-rtdb.firebaseio.com',
     storageBucket: 'massege-c61d0.appspot.com',
-    iosClientId: '651269676503-eqdfjv0pbvqqhr85fqq5573qgpk9fm9l.apps.googleusercontent.com',
-    iosBundleId: 'com.example.moleculargenetics',
-  );
-
-  static const FirebaseOptions macos = FirebaseOptions(
-    apiKey: 'AIzaSyC8z-7E9zztyweNleSLQSvu6BE9WFgMlyk',
-    appId: '1:651269676503:ios:06674bc726d60411353f92',
-    messagingSenderId: '651269676503',
-    projectId: 'massege-c61d0',
-    storageBucket: 'massege-c61d0.appspot.com',
-    iosClientId: '651269676503-eqdfjv0pbvqqhr85fqq5573qgpk9fm9l.apps.googleusercontent.com',
-    iosBundleId: 'com.example.moleculargenetics',
+    iosBundleId: 'com.example.ios',
   );
 }

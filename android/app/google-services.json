@@ -1,6 +1,7 @@
 {
   "project_info": {
     "project_number": "651269676503",
+    "firebase_url": "https://massege-c61d0-default-rtdb.firebaseio.com",
     "project_id": "massege-c61d0",
     "storage_bucket": "massege-c61d0.appspot.com"
   },
@@ -29,6 +30,13 @@
             {
               "client_id": "651269676503-c79jnorgfc2iog4gpnn0da9qkgdbfrk9.apps.googleusercontent.com",
               "client_type": 3
+            },
+            {
+              "client_id": "651269676503-eqdfjv0pbvqqhr85fqq5573qgpk9fm9l.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.moleculargenetics"
+              }
             }
           ]
         }
