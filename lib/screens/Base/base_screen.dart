@@ -25,7 +25,6 @@ class _BaseScreenState extends State<BaseScreen> {
     super.initState();
     _widgetOptions = [
       FeaturedScreen(
-        name: widget.namee,
       ),
       AlarmScreen(),
     ];

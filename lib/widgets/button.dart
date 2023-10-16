@@ -65,7 +65,6 @@ class _ProgressBttonState extends State<ProgressBtton> {
       case ButtonState.success:
         navigateToPR(
             BaseScreen(
-              namee: widget.controller,
             ),
             context);
 
