@@ -15,8 +15,7 @@ import '../Details/details_screen3.dart';
 import '../Details/details_screen4.dart';
 
 class FeaturedScreen extends StatefulWidget {
-  final String name;
-  const FeaturedScreen({Key? key, required this.name}) : super(key: key);
+  const FeaturedScreen({Key? key,}) : super(key: key);
 
   @override
   _FeaturedScreenState createState() => _FeaturedScreenState();
@@ -77,7 +76,7 @@ class _FeaturedScreenState extends State<FeaturedScreen>
       child: Scaffold(
         body: Column(
           children: [
-            AppBar(name: widget.name,),
+            AppBar(),
             Body(),
           ],
         ),
@@ -246,10 +245,8 @@ class CategoryCard extends StatelessWidget {
 }
 
 class AppBar extends StatefulWidget {
-  final name;
   const AppBar({
     Key? key,
-    required this.name,
   }) : super(key: key);
 
   @override
@@ -338,7 +335,7 @@ class _AppBarState extends State<AppBar> with TickerProviderStateMixin {
         children: [
           Text(
             // "Welcome,\nTo My App",
-            "مرحبا بك ${widget.name} في برنامج الوراثة الجزيئية",
+            "مرحبا بك في برنامج الوراثة الجزيئية",
 
             style: TextStyle(
               fontFamily: "Cairo",

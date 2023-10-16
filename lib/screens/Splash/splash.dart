@@ -1,5 +1,6 @@
 import 'package:another_flutter_splash_screen/another_flutter_splash_screen.dart';
 import 'package:awesome_notifications/awesome_notifications.dart';
+import 'package:education_app/screens/Base/base_screen.dart';
 import 'package:education_app/screens/Login/loginPage.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
@@ -66,7 +67,7 @@ class _SplashScreenState extends State<SplashScreen> {
         ),
       ),
       // defaultNextScreen: LoginPage(),
-      nextScreen: LoginPage(),
+      nextScreen: BaseScreen(),
     );
   }
 }

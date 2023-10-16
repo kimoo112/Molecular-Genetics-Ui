@@ -7,11 +7,9 @@ import '../Featured/featuerd_screen.dart';
 DateTime scheduleTime = DateTime.now();
 
 class BaseScreen extends StatefulWidget {
-  final String namee;
   final int indx;
   BaseScreen({
     Key? key,
-    required this.namee,
     this.indx = 0,
   }) : super(key: key);
 
