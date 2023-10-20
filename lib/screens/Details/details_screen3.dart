@@ -66,8 +66,8 @@ Widget mainCardWidget(BuildContext context) {
       cardWithInfoPage('assets/icons/bold 3 ls 2.jfif', 'عملية النسخ', context),
       cardWithInfoPage(
           'assets/icons/bold 3 ls 2.jfif', 'عملية النسخ 2 ', context),
-      cardWithInfoPage('assets/icons/Rna.png', 'معالجة RNA', context),
-      cardWithInfoPage('assets/icons/Rna.png', ' معالجة 2', context),
+      cardWithInfoPage('assets/icons/rna.png', 'معالجة RNA', context),
+      cardWithInfoPage('assets/icons/rna.png', ' معالجة 2', context),
       cardWithInfoPage('assets/icons/bold 5 ls 2.jfif', 'الشفرة', context),
       cardWithInfoPage('assets/icons/bold 5 ls 2.jfif', 'الشفرة 2', context),
       cardWithInfoPage('assets/icons/bold 5 ls 2.jfif', 'الشفرة 3', context),

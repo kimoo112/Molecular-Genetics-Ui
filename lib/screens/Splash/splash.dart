@@ -65,8 +65,8 @@ class _SplashScreenState extends State<SplashScreen> {
           ],
         ),
       ),
-      // defaultNextScreen: BaseScreen(),
-      nextScreen: BaseScreen(),
+      defaultNextScreen: BaseScreen(),
+      // nextScreen: BaseScreen(),
     );
   }
 }

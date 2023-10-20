@@ -2,10 +2,9 @@
 
 // import 'package:awesome_notifications/awesome_notifications.dart';
 import 'package:flutter/material.dart';
-import 'package:uuid/uuid.dart';
+
 import '../../widgets/background.dart';
 import '../Notify/noti.dart';
-import '../Notify/notification.dart';
 
 DateTime scheduleTime = DateTime.now();
 
@@ -71,9 +70,7 @@ class _Alarmscreen1State extends State<Alarmscreen1> {
               //     },
               //     child: Text("Basic Push")),
               ElevatedButton(
-                onPressed: () {
-              
-                },
+                onPressed: () {},
                 child: Text(
                   "Elevated Button",
                 ),
