@@ -40,7 +40,10 @@ void main() async {
       )
     ],
   );
-  await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+    name: 'YourAPP',
+  );
   FirebaseMessaging masseging = FirebaseMessaging.instance;
   NotificationSettings settings = await masseging.requestPermission();
   runApp(const MyApp());
