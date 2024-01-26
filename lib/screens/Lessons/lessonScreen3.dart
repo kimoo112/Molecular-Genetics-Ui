@@ -5,7 +5,6 @@ import 'package:education_app/constants/color.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:insta_image_viewer/insta_image_viewer.dart';
-import 'package:liquid_swipe/liquid_swipe.dart';
 import 'package:url_launcher/url_launcher.dart';
 import '../../Lesson3/Slide1.dart';
 import '../../Lesson3/Slide10.dart';

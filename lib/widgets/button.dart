@@ -22,24 +22,34 @@ class _ProgressBttonState extends State<ProgressBtton> {
 
   @override
   Widget build(BuildContext context) {
-    return ProgressButton.icon(iconedButtons: {
-      ButtonState.idle: IconedButton(
-          text: 'Login',
-          icon: Icon(CupertinoIcons.person, color: Colors.white),
-          color: cLightBlue),
-      ButtonState.loading: IconedButton(text: 'Loading', color: cBlue),
-      ButtonState.fail: IconedButton(
-          text: 'Failed',
-          icon: Icon(CupertinoIcons.lock, color: Colors.white),
-          color: Colors.red.shade300),
-      ButtonState.success: IconedButton(
-          text: 'Success',
-          icon: Icon(
-            CupertinoIcons.lock_open,
-            color: Colors.white,
-          ),
-          color: Colors.green.shade400)
-    }, onPressed: onPressedIconWithText, state: stateTextWithIcon);
+    return ProgressButton.icon(
+      textStyle: TextStyle(color: cNavy),
+        iconedButtons: {
+          ButtonState.idle: IconedButton(
+              text: 'تسجيل الدخول',
+              
+              icon: Icon(CupertinoIcons.person, color: cNavy),
+              color: cPrimary),
+          ButtonState.loading: IconedButton(text: 'Loading', color: cBlue),
+          ButtonState.fail: IconedButton(
+              text: 'Failed',
+              icon: Icon(CupertinoIcons.lock, color: Colors.white),
+              color: Colors.red.shade300),
+          ButtonState.success: IconedButton(
+              text: 'Success',
+              icon: Icon(
+                CupertinoIcons.lock_open,
+                color: Colors.white,
+              ),
+              color: Colors.green.shade400)
+        },
+        onPressed: () {
+          ButtonState.loading;
+          navigateToPR(
+              BaseScreen(
+              ),
+              context);
+        });
   }
 
   void onPressedIconWithText() {
@@ -65,7 +75,6 @@ class _ProgressBttonState extends State<ProgressBtton> {
       case ButtonState.success:
         navigateToPR(
             BaseScreen(
-              namee: widget.controller,
             ),
             context);
 

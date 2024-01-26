@@ -62,7 +62,7 @@ class _CourseScreenState extends State<CourseScreen> {
                                 fontFamily: "Cairo",
                                 fontSize: 30,
                                 fontWeight: FontWeight.bold,
-                                color: Colors.black)
+                                color: cPrimary)
                             // Theme.of(context).textTheme.displayMedium,
 
                             ),
@@ -152,62 +152,65 @@ class CourseContainer extends StatelessWidget {
               context, MaterialPageRoute(builder: (_) => QuizScreen2()));
         }
       },
-      child: Container(
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(10),
-          color: Colors.white,
-        ),
-        padding: const EdgeInsets.all(10),
-        child: Row(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            ClipRRect(
-              borderRadius: BorderRadius.circular(10),
-              child: Image.asset(
-                course.thumbnail,
-                width: 100,
-                // height: 60,
+      child: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: Container(
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(10),
+            color: Colors.white,
+          ),
+          padding: const EdgeInsets.all(22),
+          child: Row(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              ClipRRect(
+                borderRadius: BorderRadius.circular(10),
+                child: Image.asset(
+                  course.thumbnail,
+                  width: 100,
+                  // height: 60,
+                ),
               ),
-            ),
-            const SizedBox(
-              width: 10,
-            ),
-            Expanded(
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.end,
-                children: [
-                  Text(
-                    course.name,
-                    style: TextStyle(
-                        fontSize: 15, fontFamily: "Cairo", color: Colors.black),
-                  ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    children: [
-                      Text(
-                        "${course.author}",
-                        style: TextStyle(
-                            overflow: TextOverflow.fade,
-                            fontSize: 12.sp,
-                            fontFamily: "Poppins",
-                            color: Color(0xFF242323),
-                            fontWeight: FontWeight.w300),
-                        textAlign: TextAlign.end,
-                      ),
-                    ],
-                  ),
-                  const SizedBox(
-                    height: 5,
-                  ),
-                  LinearProgressIndicator(
-                    value: course.completedPercentage,
-                    backgroundColor: Colors.black12,
-                    color: cPrimary,
-                  ),
-                ],
+              const SizedBox(
+                width: 10,
               ),
-            ),
-          ],
+              Expanded(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      course.name,
+                      style: TextStyle(
+                          fontSize: 15, fontFamily: "Cairo", color: Colors.black),
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      children: [
+                        Text(
+                          "${course.author}",
+                          style: TextStyle(
+                              overflow: TextOverflow.fade,
+                              fontSize: 12.sp,
+                              fontFamily: "Poppins",
+                              color: Color(0xFF242323),
+                              fontWeight: FontWeight.w300),
+                          textAlign: TextAlign.end,
+                        ),
+                      ],
+                    ),
+                    const SizedBox(
+                      height: 5,
+                    ),
+                    LinearProgressIndicator(
+                      value: course.completedPercentage,
+                      backgroundColor: Colors.black12,
+                      color: cPrimary,
+                    ),
+                  ],
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     );

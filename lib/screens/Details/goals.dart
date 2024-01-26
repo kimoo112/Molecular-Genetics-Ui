@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
+import '../../constants/color.dart';
 import '../../widgets/background.dart';
 import '../Lessons/goalsScreen.dart';
 
@@ -14,15 +15,14 @@ class _GoalsScreenState extends State<GoalsScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
+      extendBodyBehindAppBar: true,
       appBar: AppBar(
-        elevation: 20,
-          backgroundColor: Color.fromARGB(255, 0, 50, 85),
-        // shadowColor: Color(0xffF0F0F0).withOpacity(.4),
-        // backgroundColor: Color.fromARGB(206, 17, 17, 17),
+        backgroundColor: Colors.transparent,
+        elevation: 0,
+        scrolledUnderElevation: 3,
+        shadowColor: cDark.withOpacity(.8),
         title: Text(
           'الأهـــداف',
-          textScaleFactor: 1.12,
           style: TextStyle(
               color: Colors.white.withOpacity(.9),
               fontWeight: FontWeight.w900,
@@ -47,7 +47,8 @@ Widget mainCardWidget(BuildContext context) {
   return ListView(
     physics: BouncingScrollPhysics(parent: AlwaysScrollableScrollPhysics()),
     children: [
-      cardWithInfoPage('assets/icons/lesson2.jpg', 'أهداف الدرس الأول ', context),
+      cardWithInfoPage(
+          'assets/icons/lesson2.jpg', 'أهداف الدرس الأول ', context),
       cardWithInfoPage(
           'assets/icons/Enzymes .jpg', 'أهداف الدرس الثاني ', context),
       cardWithInfoPage('assets/icons/RNAA.jpg', 'أهداف الدرس الثالث ', context),

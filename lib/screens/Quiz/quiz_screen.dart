@@ -3,7 +3,6 @@
 import 'package:flutter/material.dart';
 
 import '../../widgets/background.dart';
-import '../Alarms/alarmquaf.dart';
 import 'question_model.dart';
 
 class QuizScreen extends StatefulWidget {
@@ -63,21 +62,6 @@ class _QuizScreenState extends State<QuizScreen> {
                           },
                         ),
                       ),
-                      MaterialButton(
-                        padding: const EdgeInsets.all(0),
-                        color: Colors.white,
-                        shape: const CircleBorder(),
-                        child: Icon(
-                          Icons.alarm_add_rounded,
-                          color: Color.fromARGB(255, 1, 9, 54),
-                        ),
-                        onPressed: () {
-                          Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) => Alarmscreenquaf()));
-                        },
-                      ),
                     ],
                   ),
                   const Text(
@@ -88,13 +72,12 @@ class _QuizScreenState extends State<QuizScreen> {
                       fontFamily: "Cairo",
                     ),
                   ),
-                    Container(
+                  Container(
                     child: Column(
                       children: [
-                    _questionWidget(),
-                    const SizedBox(height:5),
-                       _answerList(),
-                       
+                        _questionWidget(),
+                        const SizedBox(height: 5),
+                        _answerList(),
                       ],
                     ),
                   ),

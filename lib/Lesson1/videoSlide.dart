@@ -29,13 +29,12 @@ class VideoSlide extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Text(
-          'المادة الوراثية',
-          textScaleFactor: 1.12,
-          style: TextStyle(
-              color: Colors.white.withOpacity(.9),
-              fontWeight: FontWeight.bold,
-              fontSize: 22,
-              fontFamily: "Almarai"),
+                'المادة الوراثية',
+                style: TextStyle(
+                    color: Colors.white.withOpacity(.9),
+                    fontWeight: FontWeight.bold,
+                    fontSize: 22,
+                    fontFamily: "Almarai"),
               ),
             ],
           ),
@@ -60,7 +59,6 @@ class VideoSlide extends StatelessWidget {
               const SizedBox(width: 20),
             ],
           ),
-         
         ],
       ),
     );

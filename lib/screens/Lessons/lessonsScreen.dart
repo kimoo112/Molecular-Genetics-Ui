@@ -5,7 +5,6 @@ import 'package:education_app/constants/color.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:insta_image_viewer/insta_image_viewer.dart';
-import 'package:liquid_swipe/liquid_swipe.dart';
 import 'package:url_launcher/url_launcher.dart';
 import '../../Lesson1/Slide1.dart';
 import '../../Lesson1/Slide10.dart';
@@ -120,12 +119,10 @@ class _SlidePageState extends State<SlidePage> {
   void initState() {
     super.initState();
     pageController = PageController(initialPage: widget.kimo);
-    LiquidController controller = LiquidController();
   }
 
   @override
   void dispose() {
-    LiquidController controller = LiquidController();
     pageController.dispose();
     super.dispose();
   }

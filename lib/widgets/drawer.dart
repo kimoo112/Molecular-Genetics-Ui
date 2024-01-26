@@ -1,4 +1,5 @@
 import 'dart:ui';
+
 import 'package:education_app/constants/color.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -59,11 +60,10 @@ class _MyCustomUIState extends State<MyCustomUI> with TickerProviderStateMixin {
   Widget build(BuildContext context) {
     double _width = MediaQuery.of(context).size.width;
     double _height = MediaQuery.of(context).size.height;
-    return  
- Stack(
-        children: [
-          // ALWAYS PLACE IT ON THE TOP OF EVERY WIDGET...
-      IconButton(
+    return Stack(
+      children: [
+        // ALWAYS PLACE IT ON THE TOP OF EVERY WIDGET...
+        IconButton(
           icon: Icon(Icons.menu_rounded),
           splashColor: Colors.transparent,
           onPressed: () {
@@ -75,13 +75,16 @@ class _MyCustomUIState extends State<MyCustomUI> with TickerProviderStateMixin {
             _bool = false;
           },
         ),
-          SizedBox(
-            height: _height,
-            width: _width,
-            child: null,
+        SizedBox(
+          height: _height,
+          width: _width,
+          child: null,
+        ),
+        IconButton(
+          icon: Icon(
+            Icons.menu_rounded,
+            color: cForestGreen,
           ),
-          IconButton(
-          icon: Icon(Icons.menu_rounded,color: cGreen,),
           splashColor: Colors.transparent,
           onPressed: () {
             if (_bool == true) {
@@ -92,12 +95,10 @@ class _MyCustomUIState extends State<MyCustomUI> with TickerProviderStateMixin {
             _bool = false;
           },
         ),
-      
 
-          // ALWAYS PLACE IT ON THE BOTTOM OF EVERY WIDGET...
-          CustomNavigationDrawer(),
-        ],
-      
+        // ALWAYS PLACE IT ON THE BOTTOM OF EVERY WIDGET...
+        CustomNavigationDrawer(),
+      ],
     );
   }
 
@@ -137,19 +138,15 @@ class _MyCustomUIState extends State<MyCustomUI> with TickerProviderStateMixin {
                     children: [
                       MyTile(Icons.settings_outlined, 'Settings', () {
                         HapticFeedback.lightImpact();
-                    
                       }),
                       MyTile(Icons.info_outline_rounded, 'About', () {
                         HapticFeedback.lightImpact();
-                    
                       }),
                       MyTile(Icons.feedback_outlined, 'Feedback', () {
                         HapticFeedback.lightImpact();
-                    
                       }),
                       MyTile(Icons.find_in_page_outlined, 'Privacy Policy', () {
                         HapticFeedback.lightImpact();
-                    
                       }),
                     ],
                   ),
@@ -210,7 +207,7 @@ class _MyCustomUIState extends State<MyCustomUI> with TickerProviderStateMixin {
   Widget divider() {
     return Container(
       height: 5,
-      color: cGreen,
+      color: cForestGreen,
       width: MediaQuery.of(context).size.width,
     );
   }

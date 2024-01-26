@@ -1,34 +1,85 @@
 {
   "project_info": {
-    "project_number": "651269676503",
-    "project_id": "massege-c61d0",
-    "storage_bucket": "massege-c61d0.appspot.com"
+    "project_number": "711507220797",
+    "project_id": "sonic-702ce",
+    "storage_bucket": "sonic-702ce.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:651269676503:android:888da935e28b74ad353f92",
+        "mobilesdk_app_id": "1:711507220797:android:98a59ac51e88f6d92c4d54",
         "android_client_info": {
           "package_name": "com.example.moleculargenetics"
         }
       },
       "oauth_client": [
         {
-          "client_id": "651269676503-c79jnorgfc2iog4gpnn0da9qkgdbfrk9.apps.googleusercontent.com",
+          "client_id": "711507220797-g9f4gduai4v1r5e1liqchmcotnktu61n.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyBob3iHoe4fyEZ1Xey-pBP1nkxit2wcL5k"
+          "current_key": "AIzaSyD_eMQv3FQyiSwPtDqnHSF24jTNC2e1v_E"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "651269676503-c79jnorgfc2iog4gpnn0da9qkgdbfrk9.apps.googleusercontent.com",
+              "client_id": "711507220797-0sfmdah4agns91hcf0ikrgpia69i1ak5.apps.googleusercontent.com",
               "client_type": 3
+            },
+            {
+              "client_id": "711507220797-b69fivr6s3p91nor81ttdvo3kumlkj3k.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.shoesStore"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:711507220797:android:d567071caa014c822c4d54",
+        "android_client_info": {
+          "package_name": "com.example.shoes_store"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "711507220797-34k4mt5a1jlht0pggbfib33dqslvaoao.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.shoes_store",
+            "certificate_hash": "c4db2f013be59fc58c8c9dd4b8a33b8c53d911fa"
+          }
+        },
+        {
+          "client_id": "711507220797-g9f4gduai4v1r5e1liqchmcotnktu61n.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD_eMQv3FQyiSwPtDqnHSF24jTNC2e1v_E"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "711507220797-0sfmdah4agns91hcf0ikrgpia69i1ak5.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "711507220797-b69fivr6s3p91nor81ttdvo3kumlkj3k.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.shoesStore"
+              }
             }
           ]
         }

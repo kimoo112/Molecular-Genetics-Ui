@@ -15,8 +15,9 @@ import '../Details/details_screen3.dart';
 import '../Details/details_screen4.dart';
 
 class FeaturedScreen extends StatefulWidget {
-  final String name;
-  const FeaturedScreen({Key? key, required this.name}) : super(key: key);
+  const FeaturedScreen({
+    Key? key,
+  }) : super(key: key);
 
   @override
   _FeaturedScreenState createState() => _FeaturedScreenState();
@@ -70,6 +71,17 @@ class _FeaturedScreenState extends State<FeaturedScreen>
     super.dispose();
   }
 
+  bool isEmpty = false;
+  List<Category> searchedList = categoryList;
+  Future<void> searchForProducts(String value) async {
+    searchedList = categoryList
+        .where((element) =>
+            element.lessonName.toLowerCase().contains(value.toLowerCase()))
+        .toList();
+    isEmpty = searchedList.isEmpty;
+    setState(() {});
+  }
+
   @override
   Widget build(BuildContext context) {
     return AnnotatedRegion<SystemUiOverlayStyle>(
@@ -77,8 +89,14 @@ class _FeaturedScreenState extends State<FeaturedScreen>
       child: Scaffold(
         body: Column(
           children: [
-            AppBar(name: widget.name,),
-            Body(),
+            AppBar(
+              onChanged: (p0) {
+                searchForProducts(p0);
+              },
+            ),
+            Body(
+              searchedList: searchedList,
+            ),
           ],
         ),
       ),
@@ -87,8 +105,8 @@ class _FeaturedScreenState extends State<FeaturedScreen>
 }
 
 class Body extends StatelessWidget {
-  const Body({Key? key}) : super(key: key);
-
+  const Body({Key? key, required this.searchedList}) : super(key: key);
+  final List searchedList;
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -98,6 +116,13 @@ class Body extends StatelessWidget {
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
+              Text("الـدروس",
+                  style: TextStyle(
+                    fontFamily: "Cairo",
+                    color: cPrimary,
+                    fontSize: 22,
+                    fontWeight: FontWeight.w500,
+                  )),
               TextButton(
                 onPressed: () {
                   Navigator.push(
@@ -116,13 +141,6 @@ class Body extends StatelessWidget {
                   ).copyWith(color: cPrimary),
                 ),
               ),
-              Text("الـدروس",
-                  style: TextStyle(
-                    fontFamily: "Cairo",
-                    color: Colors.black,
-                    fontSize: 22,
-                    fontWeight: FontWeight.w500,
-                  )),
             ],
           ),
         ),
@@ -140,10 +158,10 @@ class Body extends StatelessWidget {
           ),
           itemBuilder: (context, index) {
             return CategoryCard(
-              category: categoryList[index],
+              category: searchedList[index],
             );
           },
-          itemCount: categoryList.length,
+          itemCount: searchedList.length,
         ),
       ],
     );
@@ -195,13 +213,13 @@ class CategoryCard extends StatelessWidget {
         width: MediaQuery.of(context).size.width * 0.05,
         padding: const EdgeInsets.all(8),
         decoration: BoxDecoration(
-          color: Colors.white,
+          color: cNavy2,
           borderRadius: BorderRadius.circular(20),
           boxShadow: [
             BoxShadow(
-              color: Colors.black.withOpacity(.1),
+              color: Colors.white.withOpacity(.3),
               blurRadius: 4.0,
-              spreadRadius: .05,
+              spreadRadius: 1,
             ), //BoxShadow
           ],
         ),
@@ -216,8 +234,10 @@ class CategoryCard extends StatelessWidget {
                   category.thumbnail,
                   height: MediaQuery.of(context).size.height * 0.15,
                   fit: BoxFit.cover,
-                  color: Colors.black.withOpacity(.22), // Replace with your desired color
-  colorBlendMode: BlendMode.darken, // Specify the color blend mode
+                  color: cLight
+                      .withOpacity(.22), // Replace with your desired color
+                  colorBlendMode:
+                      BlendMode.darken, // Specify the color blend mode
                 ),
               ),
             ),
@@ -232,7 +252,7 @@ class CategoryCard extends StatelessWidget {
                 category.lessonName,
                 style: TextStyle(
                   fontFamily: "Cairo",
-                  color: Colors.black,
+                  color: cLight,
                   fontSize: MediaQuery.of(context).size.width * 0.036,
                 ),
                 textDirection: TextDirection.rtl,
@@ -246,12 +266,11 @@ class CategoryCard extends StatelessWidget {
 }
 
 class AppBar extends StatefulWidget {
-  final name;
   const AppBar({
     Key? key,
-    required this.name,
+    this.onChanged,
   }) : super(key: key);
-
+  final Function(String)? onChanged;
   @override
   State<AppBar> createState() => _AppBarState();
 }
@@ -327,8 +346,8 @@ class _AppBarState extends State<AppBar> with TickerProviderStateMixin {
           end: Alignment.bottomRight,
           stops: [0.1, 0.5],
           colors: [
-            Colors.blueAccent,
-            Color.fromARGB(255, 39, 7, 184),
+            cPrimary,
+            cPrimary,
           ],
         ),
       ),
@@ -338,21 +357,23 @@ class _AppBarState extends State<AppBar> with TickerProviderStateMixin {
         children: [
           Text(
             // "Welcome,\nTo My App",
-            "مرحبا بك ${widget.name} في برنامج الوراثة الجزيئية",
+            "مــرحبـا بـك فــي عــلمنــي",
 
             style: TextStyle(
               fontFamily: "Cairo",
               letterSpacing: 1,
               fontWeight: FontWeight.bold,
               fontSize: 15.sp,
-              color: Colors.white,
+              color: cNavy,
             ),
             textDirection: TextDirection.rtl,
           ),
-          const SizedBox(
-            height: 15,
+          SizedBox(
+            height: 15.h,
           ),
-          const SearchTextField()
+          SearchTextField(
+            onChanged: widget.onChanged,
+          )
         ],
       ),
     );

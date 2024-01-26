@@ -4,7 +4,7 @@ import 'package:education_app/constants/color.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:ionicons/ionicons.dart';
-import 'package:url_launcher/url_launcher.dart';
+import 'package:url_launcher/url_launcher_string.dart';
 
 class PreparedScreen extends StatelessWidget {
   var d = Container(
@@ -21,14 +21,11 @@ class PreparedScreen extends StatelessWidget {
   PreparedScreen({super.key});
 
   void contactMeOnWhatsApp() async {
-    final phoneNumber = '+201275619451'; // Replace with your phone number
-    final message = Uri.encodeComponent(
-        'Hello Karim, I Want To Talk With You!'); // Replace with your predefined message
+    final whatsappUrl =
+        'https://wa.me/+201275619451?text=Hello Karim, I Want To Talk With You!';
 
-    final whatsappUrl = 'https://wa.me/+201275619451?text=Hello Karim, I Want To Talk With You!';
-
-    if (await canLaunch(whatsappUrl)) {
-      await launch(whatsappUrl);
+    if (await canLaunchUrlString(whatsappUrl)) {
+      await launchUrlString(whatsappUrl);
     } else {
       throw 'Could not launch WhatsApp';
     }
@@ -37,8 +34,8 @@ class PreparedScreen extends StatelessWidget {
   void MyGithub() async {
     final githubUrl = 'https://github.com/kimoo112';
 
-    if (await canLaunch(githubUrl)) {
-      await launch(githubUrl);
+    if (await canLaunchUrlString(githubUrl)) {
+      await launchUrlString(githubUrl);
     } else {
       throw 'Could not launch Github';
     }
@@ -47,8 +44,8 @@ class PreparedScreen extends StatelessWidget {
   void MyFacebook() async {
     final facebookUrl = 'https://www.facebook.com/KaRiM.MoHaMeD.551/';
 
-    if (await canLaunch(facebookUrl)) {
-      await launch(facebookUrl);
+    if (await canLaunchUrlString(facebookUrl)) {
+      await launchUrlString(facebookUrl);
     } else {
       throw 'Could not launch Facebook';
     }
@@ -108,8 +105,7 @@ class PreparedScreen extends StatelessWidget {
                       icon: Icon(
                         Ionicons.logo_whatsapp,
                         size: 33.sp,
-                                             color: cLightBlue,
-
+                        color: cLightBlue,
                       )),
                   SizedBox(
                     width: 10.w,
@@ -121,8 +117,7 @@ class PreparedScreen extends StatelessWidget {
                       icon: Icon(
                         Ionicons.logo_facebook,
                         size: 33.sp,
-                                              color: cLightBlue,
-
+                        color: cLightBlue,
                       )),
                 ],
               ),

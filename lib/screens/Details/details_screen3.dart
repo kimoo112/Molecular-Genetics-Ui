@@ -3,10 +3,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_staggered_animations/flutter_staggered_animations.dart';
+
 import '../../constants/color.dart';
 import '../../constants/size.dart';
 import '../../widgets/background.dart';
-import '../Alarms/alarm3.dart';
 import '../Lessons/lessonScreen3.dart';
 
 class DetailsScreen3 extends StatefulWidget {
@@ -27,7 +27,6 @@ class _DetailsScreen3State extends State<DetailsScreen3> {
         shadowColor: cDark.withOpacity(.8),
         title: Text(
           'DNA , RNA , Protein ',
-          textScaleFactor: 1.12,
           style: TextStyle(
               color: Colors.white.withOpacity(.9),
               fontWeight: FontWeight.w600,
@@ -37,21 +36,6 @@ class _DetailsScreen3State extends State<DetailsScreen3> {
           textDirection: TextDirection.rtl,
         ),
         centerTitle: true,
-        actions: [
-          IconButton(
-            enableFeedback: true,
-            icon: Icon(
-              Icons.alarm_add,
-              size: 30,
-              color: Colors.white.withOpacity(.9),
-            ),
-            onPressed: () {
-              HapticFeedback.lightImpact();
-              Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => Alarmscreen3()));
-            },
-          ),
-        ],
       ),
       body: Stack(
         children: [
@@ -182,7 +166,7 @@ Widget cardWidget(
                 margin: EdgeInsets.only(bottom: _w / 20),
                 height: _w / 4,
                 decoration: BoxDecoration(
-                  color: Color(0xFF031235).withOpacity(.93),
+                  color: cNavy2.withOpacity(.8),
                   borderRadius: BorderRadius.all(Radius.circular(20)),
                   boxShadow: [
                     BoxShadow(
@@ -195,6 +179,18 @@ Widget cardWidget(
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: <Widget>[
+                    Padding(
+                      padding: EdgeInsets.fromLTRB(0, 0, 10, 0),
+                      child: Text(
+                        name,
+                        style: TextStyle(
+                            color: cLight,
+                            fontFamily: "Cairo",
+                            fontSize: KWidth(context) * .043),
+                        overflow: TextOverflow.ellipsis,
+                        textDirection: TextDirection.rtl,
+                      ),
+                    ),
                     Padding(
                       padding: const EdgeInsets.all(8.0),
                       child: Container(
@@ -219,18 +215,6 @@ Widget cardWidget(
                         ),
                       ),
                     ),
-                    Padding(
-                      padding: EdgeInsets.fromLTRB(0, 0, 10, 0),
-                      child: Text(
-                        name,
-                        style: TextStyle(
-                            color: cLight,
-                            fontFamily: "Cairo",
-                            fontSize: KWidth(context) * .043),
-                        overflow: TextOverflow.ellipsis,
-                        textDirection: TextDirection.rtl,
-                      ),
-                    )
                   ],
                 ),
               ),

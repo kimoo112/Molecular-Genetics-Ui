@@ -1,13 +1,14 @@
 // ignore_for_file: unused_field
 
+import 'package:awesome_snackbar_content/awesome_snackbar_content.dart';
 import 'package:education_app/constants/color.dart';
 import 'package:education_app/constants/size.dart';
-import 'package:firebase_auth/firebase_auth.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import 'package:fluttertoast/fluttertoast.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:ionicons/ionicons.dart';
 
+import '../../Logic/google auth cubit/google_auth_cubit.dart';
 import '../../widgets/button.dart';
 
 class LoginPage extends StatefulWidget {
@@ -23,13 +24,6 @@ class _LoginPageState extends State<LoginPage>
   late AnimationController _controller;
   late Animation<double> _opacity;
   late Animation<double> _transform;
-
-  Future Ksignin() async {
-    await FirebaseAuth.instance.signInWithEmailAndPassword(
-      email: emailCT.text.trim(),
-      password: passwordCT.text.trim(),
-    );
-  }
 
   @override
   void initState() {
@@ -100,18 +94,10 @@ class _LoginPageState extends State<LoginPage>
                   begin: Alignment.topLeft,
                   end: Alignment.bottomRight,
                   colors: [
-                    cLight,
-                    cBlue,
+                    cNavy,
+                    cNavy2,
                   ],
                 ),
-                //     image: DecorationImage(
-                //   image: AssetImage(
-                //     "assets/icons/Tafra.jfif",
-                //   ),
-                //   fit: BoxFit.cover,
-                //   filterQuality: FilterQuality.high,
-                //   colorFilter: ColorFilter.mode(Colors.black.withOpacity(0.3), BlendMode.srcOver),
-                // )
               ),
               child: Opacity(
                 opacity: _opacity.value,
@@ -121,14 +107,14 @@ class _LoginPageState extends State<LoginPage>
                     width: size.width * .93,
                     height: size.width * 1.5,
                     decoration: BoxDecoration(
-                      color: Colors.white,
+                      color: cNavy.withOpacity(.9),
                       borderRadius: BorderRadius.circular(15),
                       boxShadow: [
                         BoxShadow(
-                            color: Colors.black.withOpacity(.2),
-                            blurRadius: 20,
-                            spreadRadius: 2,
-                            offset: Offset(2, 5)),
+                            color: cLight.withOpacity(.2),
+                            blurRadius: 30,
+                            spreadRadius: 0,
+                            offset: Offset(2, 2)),
                       ],
                     ),
                     child: Column(
@@ -136,27 +122,30 @@ class _LoginPageState extends State<LoginPage>
                       children: [
                         SizedBox(),
                         Text(
-                          'SIGN IN',
+                          'تسجيل الدخول',
                           style: TextStyle(
                             fontSize: 20,
                             fontWeight: FontWeight.w600,
-                            color: Colors.black.withOpacity(.7),
+                            color: cLight.withOpacity(.7),
                           ),
                         ),
                         SizedBox(),
-                        // IconData icon, String hintText, bool isPassword, bool isEmail,String errorName ,controler) {
-
                         component1(
                             Icons.account_circle_outlined,
-                            'User name...',
+                            'اسم المستخدم',
                             false,
                             false,
-                            "Please Enter the Username",
+                            "ادخل اسم المستخدم لا تترك الحقل فارغ",
                             usernameCT),
-                        component1(Icons.email_outlined, 'Email...', false,
-                            true, "Please Enter the Email", emailCT),
-                        component1(Icons.lock_outline, 'Password...', true,
-                            false, "Please Enter the Password", passwordCT),
+                        component1(
+                            Icons.email_outlined,
+                            'البريد الالكتروني',
+                            false,
+                            true,
+                            "ادخل البريد الالكتروني لا تترك الحقل فارغ",
+                            emailCT),
+                        component1(Icons.lock_outline, 'كلمة السر', true, false,
+                            "ادخل كلمة السر لا تترك الحقل فارغ", passwordCT),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
@@ -168,35 +157,56 @@ class _LoginPageState extends State<LoginPage>
                               alignment: Alignment.center,
                               child: RichText(
                                 text: TextSpan(
-                                  text: 'Forgotten password!',
-                                  style: TextStyle(color: Colors.blueAccent),
-                                  recognizer: TapGestureRecognizer()
-                                    ..onTap = () {
-                                      Fluttertoast.showToast(
-                                        msg:
-                                            'Forgotten password! button pressed',
-                                      );
-                                    },
-                                ),
+                                    text: 'نسيت كلمة السر',
+                                    style: TextStyle(
+                                        color: cPrimary, fontFamily: 'Almarai'),
+                                    recognizer: TapGestureRecognizer()),
                               ),
                             )
                           ],
                         ),
+                        BlocConsumer<GoogleAuthCubit, GoogleAuthState>(
+                          listener: (context, state) {
+                            if (state is GoogleAuthFailure) {
+                              debugPrint(state.errorMsg);
+                              showSnackBar(
+                                  context, state.errorMsg, ContentType.failure);
+                            } else if (state is GoogleAuthSuccess) {
+                              showSnackBar(context, 'Login Successfuly Done',
+                                  ContentType.success);
+                            }
+                          },
+                          builder: (context, state) {
+                            if (state is GoogleAuthLoading) {
+                              return Center(
+                                child: CircularProgressIndicator(
+                                  color: cPrimary,
+                                ),
+                              );
+                            } else {}
+                            return IconButton(
+                              onPressed: () {
+                                BlocProvider.of<GoogleAuthCubit>(context)
+                                    .signInWithGoogle(context);
+                              },
+                              icon: const Icon(
+                                Ionicons.logo_google,
+                                size: 50,
+                                color: cPrimary,
+                              ),
+                            );
+                          },
+                        ),
                         SizedBox(),
                         RichText(
                           text: TextSpan(
-                            text: 'Create a new Account',
-                            style: TextStyle(
-                              color: Colors.blueAccent,
-                              fontSize: 15,
-                            ),
-                            recognizer: TapGestureRecognizer()
-                              ..onTap = () {
-                                Fluttertoast.showToast(
-                                  msg: 'Create a new Account button pressed',
-                                );
-                              },
-                          ),
+                              text: 'انشاء حساب',
+                              style: TextStyle(
+                                fontFamily: 'Almarai',
+                                color: cPrimary,
+                                fontSize: 15,
+                              ),
+                              recognizer: TapGestureRecognizer()),
                         ),
                         SizedBox(),
                       ],
@@ -211,17 +221,6 @@ class _LoginPageState extends State<LoginPage>
     );
   }
 
-  ElevatedButton ElevButton() {
-    return ElevatedButton.icon(
-        style: ElevatedButton.styleFrom(
-            foregroundColor: cLight, backgroundColor: cBlue),
-        onPressed: () {
-          Ksignin();
-        },
-        icon: Icon(CupertinoIcons.goforward, color: cLight),
-        label: Text("Login"));
-  }
-
   Widget component1(IconData icon, String hintText, bool isPassword,
       bool isEmail, String errorName, controler) {
     Size size = MediaQuery.of(context).size;
@@ -231,12 +230,13 @@ class _LoginPageState extends State<LoginPage>
       width: size.width / 1.22,
       alignment: Alignment.center,
       decoration: BoxDecoration(
-        color: Colors.black.withOpacity(.05),
+        color: cLight.withOpacity(.05),
         borderRadius: BorderRadius.circular(10),
       ),
       child: Form(
         child: TextFormField(
-          style: TextStyle(color: Colors.black.withOpacity(.8)),
+          cursorColor: cPrimary,
+          style: TextStyle(color: cLight.withOpacity(.8)),
           controller: controler,
           obscureText: isPassword,
           validator: (value) {
@@ -251,13 +251,12 @@ class _LoginPageState extends State<LoginPage>
           decoration: InputDecoration(
             prefixIcon: Icon(
               icon,
-              color: Colors.black.withOpacity(.7),
+              color: cLight.withOpacity(.7),
             ),
             border: InputBorder.none,
             hintMaxLines: 1,
             hintText: hintText,
-            hintStyle:
-                TextStyle(fontSize: 14, color: Colors.black.withOpacity(.5)),
+            hintStyle: TextStyle(fontSize: 14, color: cLight.withOpacity(.5)),
           ),
         ),
       ),
@@ -285,6 +284,21 @@ class _LoginPageState extends State<LoginPage>
       ),
     );
   }
+}
+
+void showSnackBar(BuildContext context, String errMsg, ContentType type) {
+  final snackBar = SnackBar(
+    elevation: 0,
+    behavior: SnackBarBehavior.floating,
+    backgroundColor: Colors.transparent,
+    content: AwesomeSnackbarContent(
+      title: 'On Snap!',
+      message: errMsg,
+      contentType: type,
+    ),
+  );
+
+  ScaffoldMessenger.of(context).showSnackBar(snackBar);
 }
 
 class MyBehavior extends ScrollBehavior {

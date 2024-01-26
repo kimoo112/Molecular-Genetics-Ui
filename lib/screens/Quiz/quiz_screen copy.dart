@@ -1,10 +1,11 @@
 // ignore_for_file: unnecessary_import, deprecated_member_use
 
-import '../../widgets/background.dart';
-import '../Alarms/alarmqubf.dart';
-import 'question_model.dart';
-import 'package:flutter/material.dart';
 import 'dart:ui';
+
+import 'package:flutter/material.dart';
+
+import '../../widgets/background.dart';
+import 'question_model.dart';
 
 class QuizScreen2 extends StatefulWidget {
   @override
@@ -21,69 +22,52 @@ class _QuizScreen2State extends State<QuizScreen2> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // backgroundColor: 
+      // backgroundColor:
       // const Color.fromARGB(255, 5, 50, 80),
-      body:  Stack(
+      body: Stack(
         children: [
-         
-                      AnimatingBg2(),
+          AnimatingBg2(),
           Container(
-              margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 32),
-              child:
-                  Column(mainAxisAlignment: MainAxisAlignment.spaceAround, children: [
-                Row(
-                    mainAxisAlignment:MainAxisAlignment.spaceBetween,
-
-                  children: [
-                    SizedBox(
-                      width: 40,
-                      height: 40,
-                      child: MaterialButton(
-                        padding: const EdgeInsets.all(0),
-                        color: Colors.white,
-                        shape: const CircleBorder(),
-                        child: Icon(
-                          Icons.arrow_back,
-              color:   Color.fromARGB(255, 1, 9, 54),
-                      
+            margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 32),
+            child: Column(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: [
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      SizedBox(
+                        width: 40,
+                        height: 40,
+                        child: MaterialButton(
+                          padding: const EdgeInsets.all(0),
+                          color: Colors.white,
+                          shape: const CircleBorder(),
+                          child: Icon(
+                            Icons.arrow_back,
+                            color: Color.fromARGB(255, 1, 9, 54),
+                          ),
+                          onPressed: () {
+                            Navigator.pop(context);
+                          },
                         ),
-                        onPressed: () {
-                          Navigator.pop(context);
-                        },
                       ),
-                    ),
-                    MaterialButton(
-                        padding: const EdgeInsets.all(0),
-                        color: Colors.white,
-                        shape: const CircleBorder(),
-                        child: Icon(
-                          Icons.alarm_add_rounded,
-              color:   Color.fromARGB(255, 1, 9, 54),
-                      
-                        ),
-                        onPressed: () {
-                          Navigator.push(context,
-                MaterialPageRoute(builder: (context) => Alarmscreenqubf()));
-                        },
-                      ),
-                  ],
-                ),
-                const Text(
-                  "الـتـقــويـم الـقــبـلـي ",
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 24,
-                    fontFamily: "Cairo",
+                    ],
                   ),
-                ),
-                _questionWidget(),
-                _answerList(),
-                _nextButton(),
-              ]),
-            ),
+                  const Text(
+                    "الـتـقــويـم الـقــبـلـي ",
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 24,
+                      fontFamily: "Cairo",
+                    ),
+                  ),
+                  _questionWidget(),
+                  _answerList(),
+                  _nextButton(),
+                ]),
+          ),
         ],
       ),
-      
     );
   }
 

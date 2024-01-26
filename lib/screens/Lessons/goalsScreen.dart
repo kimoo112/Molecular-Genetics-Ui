@@ -1,14 +1,12 @@
 // ignore_for_file: unused_import, duplicate_import, unnecessary_import
 
-import 'package:flutter/material.dart';
-
-import 'package:insta_image_viewer/insta_image_viewer.dart';
 import 'dart:ui';
-import 'package:flutter/material.dart';
 
-import 'package:insta_image_viewer/insta_image_viewer.dart';
-import 'dart:ui';
 import 'package:animations/animations.dart';
+import 'package:flutter/material.dart';
+import 'package:insta_image_viewer/insta_image_viewer.dart';
+
+import '../../constants/color.dart';
 import '../../widgets/background.dart';
 
 class GoalsinfScreen extends StatefulWidget {
@@ -356,12 +354,14 @@ class _GoalsinfScreenState extends State<GoalsinfScreen> {
     // _currentPageIdx = widget.currentPageIdx;
 
     return Scaffold(
+      extendBodyBehindAppBar: true,
       appBar: AppBar(
-        elevation: 20,
-          backgroundColor: Color.fromARGB(255, 0, 50, 85),
+        backgroundColor: Colors.transparent,
+        elevation: 0,
+        scrolledUnderElevation: 3,
+        shadowColor: cDark.withOpacity(.8),
         title: Text(
           'GOALS',
-          textScaleFactor: 1.12,
           style: TextStyle(
               color: Colors.white.withOpacity(.9),
               fontWeight: FontWeight.w600,

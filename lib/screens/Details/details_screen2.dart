@@ -8,7 +8,6 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_staggered_animations/flutter_staggered_animations.dart';
 
 import '../../widgets/background.dart';
-import '../Alarms/alarm2.dart';
 import '../Lessons/lessonScreen2.dart';
 import 'details_screen.dart';
 import 'goals.dart';
@@ -30,7 +29,7 @@ class _DetailsScreen2State extends State<DetailsScreen2> {
         shadowColor: cDark.withOpacity(.8),
         title: Text(
           'تضاعف DNA',
-          textScaleFactor: 1.12,
+          
           style: TextStyle(
               color: cLight,
               fontWeight: FontWeight.bold,
@@ -40,22 +39,6 @@ class _DetailsScreen2State extends State<DetailsScreen2> {
           textDirection: TextDirection.rtl,
         ),
         centerTitle: true,
-        actions: [
-          IconButton(
-            color: Colors.black.withOpacity(.7),
-            enableFeedback: true,
-            icon: Icon(
-              Icons.alarm_add,
-              size: 30,
-              color: Colors.white,
-            ),
-            onPressed: () {
-              HapticFeedback.lightImpact();
-              Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => Alarmscreen2()));
-            },
-          ),
-        ],
       ),
       body: Stack(
         children: [
@@ -73,7 +56,6 @@ Widget mainCardWidget(BuildContext context) {
     children: [
       cardWithInfoPage('assets/icons/R.jfif', 'الأهداف', context),
       cardWithInfoPage('assets/icons/youtube.jfif', 'شرح فيديو', context),
-
       cardWithInfoPage(
         'assets/icons/bold 1 ls 3.png',
         'تضاعف شبه المحافظ',
@@ -83,17 +65,18 @@ Widget mainCardWidget(BuildContext context) {
         'assets/icons/lesson22.jfif',
         'فك الالتواء',
         context,
-      ), cardWithInfoPage(
+      ),
+      cardWithInfoPage(
         'assets/icons/lesson22.jfif',
         '2 فك الالتواء',
         context,
       ),
-      cardWithInfoPage('assets/icons/bold 3 ls 3.png', '1 ارتباط القواعــد في أزواج', context),
+      cardWithInfoPage('assets/icons/bold 3 ls 3.png',
+          '1 ارتباط القواعــد في أزواج', context),
       cardWithInfoPage('assets/icons/bold 3 ls 3.png',
           '2 ارتباط القواعــد في أزواج', context),
       cardWithInfoPage('assets/icons/bold 3 ls 3.png',
           '3 ارتباط القواعــد في أزواج', context),
-     
       SizedBox(
         height: MediaQuery.of(context).size.width / 7,
       ),
@@ -153,8 +136,7 @@ Widget cardWidget(
                       currentPageIdx: 3,
                     )),
           );
-        } 
-        else if (name == "2 فك الالتواء") {
+        } else if (name == "2 فك الالتواء") {
           Navigator.push(
             context,
             MaterialPageRoute(
@@ -170,8 +152,7 @@ Widget cardWidget(
                       currentPageIdx: 5,
                     )),
           );
-        } 
-        else if (name == '2 ارتباط القواعــد في أزواج') {
+        } else if (name == '2 ارتباط القواعــد في أزواج') {
           Navigator.push(
             context,
             MaterialPageRoute(
@@ -179,17 +160,15 @@ Widget cardWidget(
                       currentPageIdx: 6,
                     )),
           );
-        }
-        else if (name == '3 ارتباط القواعــد في أزواج') {
+        } else if (name == '3 ارتباط القواعــد في أزواج') {
           Navigator.push(
             context,
             MaterialPageRoute(
                 builder: (context) => LessonScreen2(
-                      currentPageIdx:7,
+                      currentPageIdx: 7,
                     )),
           );
-        }
-        else {
+        } else {
           Navigator.push(
             context,
             MaterialPageRoute(builder: (context) => DetailsScreen()),
@@ -247,9 +226,19 @@ class ContainerImage extends StatelessWidget {
                 ],
               ),
               child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: <Widget>[
-                  Padding(
+           Padding(
+                    padding: EdgeInsets.fromLTRB(0, 0, 10, 0),
+                    child: Text(
+                      name,
+                      style: TextStyle(
+                          color: cDark,
+                          fontFamily: "Cairo",
+                          fontSize: KWidth(context) * .043),
+                      overflow: TextOverflow.ellipsis,
+                    ),
+                  ),       Padding(
                     padding: const EdgeInsets.all(8.0),
                     child: Container(
                       decoration: BoxDecoration(
@@ -273,15 +262,7 @@ class ContainerImage extends StatelessWidget {
                       ),
                     ),
                   ),
-                  Padding(
-                    padding: EdgeInsets.fromLTRB(0, 0, 10, 0),
-                    child: Text(
-                      name,
-                      style: TextStyle(
-                          color: cDark, fontFamily: "Cairo", fontSize: KWidth(context)*.043),
-                      overflow: TextOverflow.ellipsis,
-                    ),
-                  )
+                  
                 ],
               ),
             ),

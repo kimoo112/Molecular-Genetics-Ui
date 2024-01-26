@@ -1,0 +1,1 @@
+const hiveBox = 'BoxKimo';

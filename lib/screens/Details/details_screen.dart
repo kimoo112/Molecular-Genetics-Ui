@@ -4,14 +4,13 @@ import 'package:education_app/constants/navigate.dart';
 import 'package:education_app/screens/Details/goals.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_staggered_animations/flutter_staggered_animations.dart';
+
 import '../../constants/color.dart';
 import '../../constants/size.dart';
 import '../../models/lesson.dart';
 import '../../widgets/background.dart';
-import '../Alarms/alarm1.dart';
 import '../Lessons/lessonsScreen.dart';
 import 'details_screen4.dart';
 
@@ -33,7 +32,6 @@ class _DetailsScreenState extends State<DetailsScreen> {
         shadowColor: cDark.withOpacity(.8),
         title: Text(
           'المادة الوراثية',
-          textScaleFactor: 1.12,
           style: TextStyle(
               color: Colors.white.withOpacity(.9),
               fontWeight: FontWeight.bold,
@@ -43,21 +41,6 @@ class _DetailsScreenState extends State<DetailsScreen> {
           textDirection: TextDirection.rtl,
         ),
         centerTitle: true,
-        actions: [
-          IconButton(
-            color: Colors.black.withOpacity(.7),
-            tooltip: ' الـتـكـرار',
-            enableFeedback: true,
-            icon: Icon(
-              Icons.alarm_add,
-              size: 30,
-              color: Colors.white.withOpacity(.7),
-            ),
-            onPressed: () {
-              navigateToP(Alarmscreen1(), context);
-            },
-          ),
-        ],
       ),
       body: Stack(
         children: [
@@ -88,16 +71,14 @@ Widget mainCardWidget(BuildContext context) {
           'assets/icons/bold 5 ls 1.png', 'العلامات المشعة', context),
       cardWithInfoPage(
           'assets/icons/bold 6 ls 1.jfif', 'DNA Tracking', context),
-                cardWithInfoPage(
+      cardWithInfoPage(
           'assets/icons/bold 8 ls 1.jfif', 'النيوكليوتدات', context),
-     
       cardWithInfoPage(
           'assets/icons/bold 9 ls 1.jfif', 'تشارجاف Chargaff', context),
-            cardWithInfoPage(
+      cardWithInfoPage(
           'assets/icons/bold 10 ls 1.jpg', 'ويلكنز Wilkins', context),
-           cardWithInfoPage(
+      cardWithInfoPage(
           'assets/icons/bold 11 ls 1.jpeg', 'واطسون وكريك', context),
-
       cardWithInfoPage('assets/icons/bold13ls1.jfif', 'تركيب DNA', context),
       cardWithInfoPage(
           'assets/icons/bold 12 ls 1.png', 'الاتجاه Orientation', context),
@@ -158,7 +139,6 @@ Widget cardWidget(
           navigateToLessonScreen(context, 9);
         } else if (name == 'النيوكليوتدات') {
           navigateToLessonScreen(context, 10);
-
         } else if (name == 'تشارجاف Chargaff') {
           navigateToLessonScreen(context, 11);
         } else if (name == 'ويلكنز Wilkins') {
@@ -204,6 +184,17 @@ Widget cardWidget(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: <Widget>[
                     Padding(
+                      padding: EdgeInsets.fromLTRB(0, 0, 10, 0),
+                      child: Text(
+                        name,
+                        style: TextStyle(
+                            color: cDark,
+                            fontFamily: "Cairo",
+                            fontSize: KWidth(context) * .043),
+                        overflow: TextOverflow.ellipsis,
+                      ),
+                    ),
+                    Padding(
                       padding: const EdgeInsets.all(8.0),
                       child: Container(
                         decoration: BoxDecoration(
@@ -227,18 +218,6 @@ Widget cardWidget(
                         ),
                       ),
                     ),
-                    Padding(
-                      padding: EdgeInsets.fromLTRB(0, 0, 10, 0),
-                      child: Text(
-                        name,
-                        style: TextStyle(
-                            color: cDark,
-                            fontFamily: "Cairo",
-                            fontSize: KWidth(context) * .043),
-                        overflow: TextOverflow.ellipsis,
-                        textDirection: TextDirection.rtl,
-                      ),
-                    )
                   ],
                 ),
               ),

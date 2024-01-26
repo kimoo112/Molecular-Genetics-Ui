@@ -1,6 +1,5 @@
 import 'package:another_flutter_splash_screen/another_flutter_splash_screen.dart';
 import 'package:awesome_notifications/awesome_notifications.dart';
-import 'package:education_app/screens/Login/loginPage.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -8,6 +7,7 @@ import 'package:lottie/lottie.dart';
 import 'package:uuid/uuid.dart';
 
 import '../../constants/color.dart';
+import '../onboarding/onboarding_view.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({Key? key}) : super(key: key);
@@ -42,30 +42,30 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   Widget build(BuildContext context) {
     return FlutterSplashScreen.scale(
-      duration: Duration(seconds: 4),
-      backgroundColor: Colors.white,
+      duration: Duration(seconds: 6),
+      backgroundColor: cNavy,
       childWidget: SizedBox(
         height: 200.sp,
         width: 250.sp,
         child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
             const SizedBox(height: 20),
-            Lottie.asset('assets/icons/72306-dna-bio.json'),
+            Lottie.asset('assets/icons/splashLottie.json'),
             const SizedBox(height: 20),
             Text(
-              'MOLECULAR GENETICS',
+              'عــلمـنـي',
               style: TextStyle(
-                fontFamily: "Poppins",
-                color: cNavy2,
+                color: cLight,
                 fontWeight: FontWeight.bold,
                 letterSpacing: 1,
-                fontSize: 20.sp,
+                fontSize: 33.sp,
               ),
             ),
           ],
         ),
       ),
-      defaultNextScreen: LoginPage(),
+      nextScreen: OnboardingView(),
     );
   }
 }

@@ -2,7 +2,6 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:get/get.dart';
 
 void navigateToPR(Widget, context) => Navigator.pushReplacement(
       context,
@@ -29,5 +28,3 @@ void navigateToP(Widget, context) => Navigator.push(
       ),
     );
 
-void GetTo(Widget, transiton, Duration, context) =>
-    Get.to(Widget, transition: transiton, duration: Duration);
